@@ -1,7 +1,7 @@
 import SwiftUI
 import VLstackNamespace
 
-extension VLstack
+public extension VLstack
 {
  enum SFSymbol: String
  {
@@ -100,7 +100,7 @@ extension Image
  ///
  /// - Parameters:
  ///   - sfSymbol: The name of the system symbol image.
- init(_ sfSymbol: VLstack.SFSymbol)
+ public init(_ sfSymbol: VLstack.SFSymbol)
  {
   self.init(systemName: sfSymbol.rawValue)
  }
@@ -136,8 +136,8 @@ extension Image
  ///     its appearance, if specified. If the symbol doesn't support
  ///     variable values, this parameter has no effect. Use the SF Symbols
  ///     app to look up which symbols support variable values.
- init(_ sfSymbol: VLstack.SFSymbol,
-      variableValue: Double?)
+ public init(_ sfSymbol: VLstack.SFSymbol,
+             variableValue: Double?)
  {
   self.init(systemName: sfSymbol.rawValue, variableValue: variableValue)
  }
