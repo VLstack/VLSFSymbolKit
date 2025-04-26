@@ -17,3 +17,10 @@ public extension Label where Title == Text, Icon == Image
  }
 }
 
+/*
+ nonisolated init<S>(_ title: S,
+                   _ sfSymbol: VLstack.SFSymbol) where S : StringProtocol
+ {
+  self.init(title, systemImage: sfSymbol.rawValue)
+ }
+*/

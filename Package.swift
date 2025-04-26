@@ -4,6 +4,7 @@
 import PackageDescription
 
 let package = Package(name: "VLSFSymbolKit",
+                      defaultLocalization: "en",
                       platforms: [ .iOS(.v17) ],
                       products:
                       [
@@ -17,5 +18,6 @@ let package = Package(name: "VLSFSymbolKit",
                       targets:
                       [
                        .target(name: "VLSFSymbolKit",
-                               dependencies: [ "VLstackNamespace" ])
+                               dependencies: [ "VLstackNamespace" ],
+                               resources: [ .process("Resources") ])
                       ])
