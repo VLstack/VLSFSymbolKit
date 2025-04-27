@@ -109,8 +109,8 @@ extension VLstack
 
      if canChangeVariants
      {
-      VLstack.SFSymbolVariantPicker(variant: $currentSymbolVariant,
-                                    allowedVariants: allowedVariants)
+      VLstack.SFSymbolVariantsPicker(variant: $currentSymbolVariant,
+                                     allowedVariants: allowedVariants)
       .padding(.horizontal)
      }
 

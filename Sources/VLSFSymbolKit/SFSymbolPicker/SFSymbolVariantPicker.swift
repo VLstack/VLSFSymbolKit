@@ -3,13 +3,13 @@ import SwiftUI
 
 extension VLstack
 {
- package struct SFSymbolVariantPicker: View
+ package struct SFSymbolVariantsPicker: View
  {
   @Environment(\.colorScheme) var colorScheme
 
-  @State private var current: CustomVariants
+  @State private var current: VLstack.SFSymbolVariants
   @Binding private var boundSource: SymbolVariants?
-  private let allowedVariants: [ CustomVariantShape ]
+  private let allowedVariants: [ VLstack.SFSymbolVariantShape ]
 
   package init(variant: Binding<SymbolVariants?>,
                allowedVariants: [ SymbolVariants ]?)
@@ -81,93 +81,6 @@ extension VLstack
   private var selectedColor: Color
   {
    colorScheme == .dark ? .white.opacity(0.4) : .white
-  }
- }
-
- fileprivate enum CustomVariantShape: Int
- {
-  case circle
-  case square
-  case rectangle
-  case fill
-  case slash
-
-  var description: String
-  {
-   switch self
-   {
-    case .circle: "circle"
-    case .square: "square"
-    case .rectangle: "rectangle"
-    case .fill: "fill"
-    case .slash: "slash"
-   }
-  }
- }
-
- fileprivate struct CustomVariants: Hashable
- {
-  var values: Set<CustomVariantShape> = []
-
-  func contains(_ shape: CustomVariantShape) -> Bool
-  {
-   values.contains(shape)
-  }
-
-  mutating func remove(_ shape: CustomVariantShape)
-  {
-   values.remove(shape)
-  }
-
-  mutating func insert(_ shape: CustomVariantShape)
-  {
-   switch shape
-   {
-    case .circle:
-     values.remove(.square)
-     values.remove(.rectangle)
-     values.insert(.circle)
-
-    case .square:
-     values.remove(.circle)
-     values.remove(.rectangle)
-     values.insert(.square)
-
-    case .rectangle:
-     values.remove(.circle)
-     values.remove(.square)
-     values.insert(.rectangle)
-
-    case .fill:
-     values.insert(.fill)
-
-    case .slash:
-     values.insert(.slash)
-   }
-  }
-
-  init(_ variant: SymbolVariants?)
-  {
-   guard let variant else { return }
-
-   if variant.contains(.circle) { insert(.circle) }
-   if variant.contains(.square) { insert(.square) }
-   if variant.contains(.rectangle) { insert(.rectangle) }
-   if variant.contains(.fill) { insert(.fill) }
-   if variant.contains(.slash) { insert(.slash) }
-  }
-
-  func toSymbolVariants() -> SymbolVariants
-  {
-   var results: SymbolVariants = .none
-
-   if self.contains(.circle) { results = results.circle }
-   if self.contains(.square) { results = results.square }
-   if self.contains(.rectangle) { results = results.rectangle }
-   if self.contains(.fill) { results = results.fill }
-   if self.contains(.slash) { results = results.slash }
-
-   return results
   }
  }
 }
