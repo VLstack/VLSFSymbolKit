@@ -1,4 +1,5 @@
 import VLstackNamespace
+import VLBundleKit
 import SwiftUI
 
 extension VLstack
@@ -52,15 +53,19 @@ extension VLstack
     {
      HStack
      {
-      Button(VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.ButtonOK"), action: {})
+      Button(Bundle.main.localizedString("I18N-VLSFSymbolKit.ButtonOK",
+                                         fallbackModule: .module),
+             action: {})
        .buttonStyle(.borderless)
        .opacity(0)
        .disabled(true)
 
-      Text(verbatim: VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.SheetTitle"))
+      Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SheetTitle",
+                                                 fallbackModule: .module))
        .frame(maxWidth: .infinity, alignment: .center)
 
-      Button(VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.ButtonOK"))
+      Button(Bundle.main.localizedString("I18N-VLSFSymbolKit.ButtonOK",
+                                         fallbackModule: .module))
       {
        self.selected = currentSymbol
        self.symbolVariant = currentSymbolVariant
@@ -80,7 +85,8 @@ extension VLstack
 
       TextField(text: $search)
       {
-       Text(verbatim: VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.SearchForASymbol"))
+       Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SearchForASymbol",
+                                                  fallbackModule: .module))
       }
       .textFieldStyle(.plain)
       .autocorrectionDisabled()

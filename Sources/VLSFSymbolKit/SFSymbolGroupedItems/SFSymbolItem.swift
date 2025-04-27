@@ -15,7 +15,8 @@ extension VLstack
   {
    self.sfSymbol = sfSymbol
    self.keys = keys
-   self.keywords = keys.map { VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.keyword.\($0)") }
+   self.keywords = keys.map { Bundle.main.localizedString("I18N-VLSFSymbolKit.keyword.\($0)",
+                                                          fallbackModule: .module) }
   }
  }
 }

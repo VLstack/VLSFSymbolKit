@@ -15,7 +15,8 @@ extension VLstack
   {
    self.id = UUID().uuidString
    self.key = key
-   self.name = VLstack.SFSymbol.localize("I18N-VLSFSymbolKit.group.\(key)")
+   self.name = Bundle.main.localizedString("I18N-VLSFSymbolKit.group.\(key)",
+                                           fallbackModule: .module)
    self.items = items
   }
 
