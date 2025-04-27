@@ -6,8 +6,8 @@ extension VLstack
  public struct SFSymbolPicker<NoSelection: View>: View
  {
   @Binding private var selected: VLstack.SFSymbol?
-  @Binding private var symbolVariant: SymbolVariants?
-  private let allowedVariants: [ SymbolVariants ]?
+  @Binding private var symbolVariant: VLstack.SFSymbolVariants?
+  private let allowedVariants: [ VLstack.SFSymbolVariantShape ]?
   private let canChangeVariants: Bool
   private let detents: Set<PresentationDetent>
   private let noSelection: () -> NoSelection
@@ -17,7 +17,7 @@ extension VLstack
   @State private var initialDetent: PresentationDetent
 
   public init(selected: Binding<VLstack.SFSymbol?>,
-              symbolVariant: SymbolVariants = .none,
+              symbolVariant: VLstack.SFSymbolVariants = VLstack.SFSymbolVariants(SymbolVariants.none),
               detents: Set<PresentationDetent> = [ .medium, .large ],
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
   {
@@ -32,8 +32,19 @@ extension VLstack
   }
 
   public init(selected: Binding<VLstack.SFSymbol?>,
-              symbolVariant: Binding<SymbolVariants?>,
-              allowedVariants: [ SymbolVariants ]? = nil,
+              symbolVariant: SymbolVariants,
+              detents: Set<PresentationDetent> = [ .medium, .large ],
+              @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
+  {
+   self.init(selected: selected,
+             symbolVariant: VLstack.SFSymbolVariants(symbolVariant),
+             detents: detents,
+             noSelection: noSelection)
+  }
+
+  public init(selected: Binding<VLstack.SFSymbol?>,
+              symbolVariant: Binding<VLstack.SFSymbolVariants?>,
+              allowedVariants: [ VLstack.SFSymbolVariantShape ]? = nil,
               detents: Set<PresentationDetent> = [ .medium, .large ],
               accentColor: Color? = nil,
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
@@ -51,7 +62,7 @@ extension VLstack
   public var body: some View
   {
    VLstack.SFSymbolPickerSelected(selected: selected,
-                                  symbolVariant: symbolVariant ?? .none,
+                                  symbolVariant: symbolVariant ?? VLstack.SFSymbolVariants(SymbolVariants.none),
                                   noSelection: noSelection)
    .onTapGesture { isPresented.toggle() }
    .sheet(isPresented: $isPresented)

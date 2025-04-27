@@ -8,28 +8,15 @@ extension VLstack
   @Environment(\.colorScheme) var colorScheme
 
   @State private var current: VLstack.SFSymbolVariants
-  @Binding private var boundSource: SymbolVariants?
+  @Binding private var boundSource: VLstack.SFSymbolVariants?
   private let allowedVariants: [ VLstack.SFSymbolVariantShape ]
 
-  package init(variant: Binding<SymbolVariants?>,
-               allowedVariants: [ SymbolVariants ]?)
+  package init(variant: Binding<VLstack.SFSymbolVariants?>,
+               allowedVariants: [ VLstack.SFSymbolVariantShape ]?)
   {
-   self._current = State(wrappedValue: .init(variant.wrappedValue))
+   self._current = State(wrappedValue: variant.wrappedValue ?? VLstack.SFSymbolVariants(SymbolVariants.none))
    self._boundSource = variant
-
-   self.allowedVariants = (allowedVariants ?? [ .circle, .square, .rectangle, .fill, .slash ]).compactMap
-   {
-    shape in
-    switch shape
-    {
-     case .circle: .circle
-     case .square: .square
-     case .rectangle: .rectangle
-     case .fill: .fill
-     case .slash: .slash
-     default: nil
-    }
-   }
+   self.allowedVariants = allowedVariants ?? [ .circle, .square, .rectangle, .fill, .slash ]
   }
 
   package var body: some View
@@ -49,7 +36,7 @@ extension VLstack
       {
        current.insert(variant)
       }
-      boundSource = current.toSymbolVariants()
+      boundSource = current
      }
      label: { Text(verbatim: variant.description) }
      .lineLimit(1)

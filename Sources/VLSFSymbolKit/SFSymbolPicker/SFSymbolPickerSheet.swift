@@ -8,8 +8,8 @@ extension VLstack
  {
   @Binding private var isPresented: Bool
   @Binding private var selected: VLstack.SFSymbol?
-  @Binding private var symbolVariant: SymbolVariants?
-  private let allowedVariants: [ SymbolVariants ]?
+  @Binding private var symbolVariant: VLstack.SFSymbolVariants?
+  private let allowedVariants: [ VLstack.SFSymbolVariantShape ]?
   private let canChangeVariants: Bool
   private let noSelection: () -> NoSelection
   private let accentColor: Color
@@ -24,12 +24,12 @@ extension VLstack
   @Namespace private var namespace
 
   @State private var currentSymbol: VLstack.SFSymbol?
-  @State private var currentSymbolVariant: SymbolVariants?
+  @State private var currentSymbolVariant: VLstack.SFSymbolVariants?
 
   package init(isPresented: Binding<Bool>,
                selected: Binding<VLstack.SFSymbol?>,
-               symbolVariant: Binding<SymbolVariants?>,
-               allowedVariants: [ SymbolVariants ]?,
+               symbolVariant: Binding<VLstack.SFSymbolVariants?>,
+               allowedVariants: [ VLstack.SFSymbolVariantShape ]?,
                canChangeVariants: Bool,
                accentColor: Color? = nil,
                @ViewBuilder noSelection: @escaping () -> NoSelection)

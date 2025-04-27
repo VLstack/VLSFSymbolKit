@@ -6,11 +6,11 @@ extension VLstack
  package struct SFSymbolPickerSelected<NoSelection: View>: View
  {
   private let selected: VLstack.SFSymbol?
-  private let symbolVariant: SymbolVariants
+  private let symbolVariant: VLstack.SFSymbolVariants
   private let noSelection: () -> NoSelection
 
   package init(selected: VLstack.SFSymbol?,
-               symbolVariant: SymbolVariants,
+               symbolVariant: VLstack.SFSymbolVariants,
                @ViewBuilder noSelection: @escaping () -> NoSelection)
   {
    self.selected = selected
@@ -23,7 +23,7 @@ extension VLstack
    if let selected
    {
     Image(selected)
-     .symbolVariant(symbolVariant)
+     .symbolVariant(symbolVariant.nativeVariant)
    }
    else
    {

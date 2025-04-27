@@ -28,6 +28,19 @@ extension VLstack
  {
   public var values: Set<SFSymbolVariantShape> = []
 
+  public var nativeVariant: SymbolVariants
+  {
+   var results: SymbolVariants = .none
+
+   if self.contains(.circle) { results = results.circle }
+   if self.contains(.square) { results = results.square }
+   if self.contains(.rectangle) { results = results.rectangle }
+   if self.contains(.fill) { results = results.fill }
+   if self.contains(.slash) { results = results.slash }
+
+   return results
+  }
+
   public func contains(_ shape: SFSymbolVariantShape) -> Bool
   {
    values.contains(shape)
@@ -74,19 +87,6 @@ extension VLstack
    if variant.contains(.rectangle) { insert(.rectangle) }
    if variant.contains(.fill) { insert(.fill) }
    if variant.contains(.slash) { insert(.slash) }
-  }
-
-  public func toSymbolVariants() -> SymbolVariants
-  {
-   var results: SymbolVariants = .none
-
-   if self.contains(.circle) { results = results.circle }
-   if self.contains(.square) { results = results.square }
-   if self.contains(.rectangle) { results = results.rectangle }
-   if self.contains(.fill) { results = results.fill }
-   if self.contains(.slash) { results = results.slash }
-
-   return results
   }
  }
 }

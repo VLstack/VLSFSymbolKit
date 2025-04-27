@@ -7,13 +7,13 @@ extension VLstack
  {
   @Binding private var selected: VLstack.SFSymbol?
   private let target: VLstack.SFSymbol
-  private let symbolVariant: SymbolVariants?
+  private let symbolVariant: VLstack.SFSymbolVariants?
   private let groupKey: String
   private let namespace: Namespace.ID
 
   package init(selected: Binding<VLstack.SFSymbol?>,
                target: VLstack.SFSymbol,
-               symbolVariant: SymbolVariants?,
+               symbolVariant: VLstack.SFSymbolVariants?,
                groupKey: String,
                namespace: Namespace.ID)
   {
@@ -35,7 +35,7 @@ extension VLstack
 
     Image(target)
      .font(.system(size: 24))
-     .symbolVariant(symbolVariant ?? .none)
+     .symbolVariant(symbolVariant?.nativeVariant ?? .none)
      .opacity(selected == target ? 1 : 0.65)
    }
    .onTapGesture
