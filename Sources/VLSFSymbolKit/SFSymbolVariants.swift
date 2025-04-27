@@ -28,6 +28,28 @@ extension VLstack
  {
   public var values: Set<SFSymbolVariantShape> = []
 
+  public init(_ variant: SymbolVariants?)
+  {
+   guard let variant else { return }
+
+   if variant.contains(.circle) { insert(.circle) }
+   if variant.contains(.square) { insert(.square) }
+   if variant.contains(.rectangle) { insert(.rectangle) }
+   if variant.contains(.fill) { insert(.fill) }
+   if variant.contains(.slash) { insert(.slash) }
+  }
+
+  public init(stringEncoded: String)
+  {
+   let splitted = stringEncoded.split(separator: ",").map { String($0) }
+
+   if splitted.contains("circle") { insert(.circle) }
+   if splitted.contains("square") { insert(.square) }
+   if splitted.contains("rectangle") { insert(.rectangle) }
+   if splitted.contains("fill") { insert(.fill) }
+   if splitted.contains("slash") { insert(.slash) }
+  }
+
   public var nativeVariant: SymbolVariants
   {
    var results: SymbolVariants = .none
@@ -39,6 +61,19 @@ extension VLstack
    if self.contains(.slash) { results = results.slash }
 
    return results
+  }
+
+  public var stringEncoded: String
+  {
+   var results: [ String ] = []
+
+   if self.contains(.circle) { results.append("circle") }
+   if self.contains(.square) { results.append("square") }
+   if self.contains(.rectangle) { results.append("rectangle") }
+   if self.contains(.fill) { results.append("fill") }
+   if self.contains(.slash) { results.append("slash") }
+
+   return results.joined(separator: ",")
   }
 
   public func contains(_ shape: SFSymbolVariantShape) -> Bool
@@ -76,17 +111,6 @@ extension VLstack
     case .slash:
      values.insert(.slash)
    }
-  }
-
-  public init(_ variant: SymbolVariants?)
-  {
-   guard let variant else { return }
-
-   if variant.contains(.circle) { insert(.circle) }
-   if variant.contains(.square) { insert(.square) }
-   if variant.contains(.rectangle) { insert(.rectangle) }
-   if variant.contains(.fill) { insert(.fill) }
-   if variant.contains(.slash) { insert(.slash) }
   }
  }
 }
