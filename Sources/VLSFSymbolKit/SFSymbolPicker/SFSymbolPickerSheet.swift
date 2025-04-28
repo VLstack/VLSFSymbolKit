@@ -14,7 +14,7 @@ extension VLstack
   private let noSelection: () -> NoSelection
   private let accentColor: Color
 
-  private let grouper = VLstack.SFSymbolGrouper()
+  @State private var grouper = VLstack.SFSymbolGrouper()
   private let columns = [ GridItem(.adaptive(minimum: 48), spacing: 16) ]
 
   @State private var groups: [ VLstack.SFSymbolGroup ] = []
