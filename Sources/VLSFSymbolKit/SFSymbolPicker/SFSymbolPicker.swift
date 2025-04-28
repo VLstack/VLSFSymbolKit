@@ -72,6 +72,7 @@ extension VLstack
                                 symbolVariant: $symbolVariant,
                                 allowedVariants: allowedVariants,
                                 canChangeVariants: canChangeVariants,
+                                accentColor: accentColor,
                                 noSelection: noSelection)
      .presentationDetents(detents, selection: $initialDetent)
      .presentationDragIndicator(.visible)
