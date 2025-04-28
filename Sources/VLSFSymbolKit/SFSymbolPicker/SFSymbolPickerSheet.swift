@@ -175,7 +175,6 @@ extension VLstack
     .onChange(of: currentSymbolVariant) { taskId += 1 }
     .task(id: taskId)
     {
-     print("taskId: \(taskId)")
      isFiltering = true
      Task
      {
@@ -188,7 +187,6 @@ extension VLstack
 
       let filtered = await grouper.filter(search: search,
                                           symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
-      print("task.filtered.count: \(filtered.count)")
       await MainActor.run
       {
        self.groups = filtered
@@ -203,11 +201,9 @@ extension VLstack
     ProgressView()
     .task
     {
-     print("task loadGroups")
      await grouper.load()
      let filtered = await grouper.filter(search: search,
                                          symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
-     print("filtered.count \(filtered.count)")
      await MainActor.run
      {
       self.groups = filtered
