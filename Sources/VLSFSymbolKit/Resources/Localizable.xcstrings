@@ -38,6 +38,23 @@
         }
       }
     },
+    "I18N-VLSFSymbolKit.group.arrowextended" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extended arrows"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flèches étendues"
+          }
+        }
+      }
+    },
     "I18N-VLSFSymbolKit.group.commerce" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -451,6 +468,9 @@
           }
         }
       }
+    },
+    "Key 1" : {
+      "extractionState" : "manual"
     }
   },
   "version" : "1.0"

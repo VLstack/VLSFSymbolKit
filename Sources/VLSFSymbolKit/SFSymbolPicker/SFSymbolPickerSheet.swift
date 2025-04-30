@@ -12,6 +12,7 @@ extension VLstack
   private let allowedVariants: [ VLstack.SFSymbolVariantShape ]?
   private let canChangeVariants: Bool
   private let noSelection: () -> NoSelection
+  private let title: String?
   private let accentColor: Color
 
   @State private var grouper = VLstack.SFSymbolGrouper()
@@ -32,6 +33,7 @@ extension VLstack
                symbolVariant: Binding<VLstack.SFSymbolVariants?>,
                allowedVariants: [ VLstack.SFSymbolVariantShape ]?,
                canChangeVariants: Bool,
+               title: String? = nil,
                accentColor: Color? = nil,
                @ViewBuilder noSelection: @escaping () -> NoSelection)
   {
@@ -41,6 +43,7 @@ extension VLstack
    self.allowedVariants = allowedVariants
    self.canChangeVariants = canChangeVariants
    self.noSelection = noSelection
+   self.title = title
    self.accentColor = accentColor ?? .blue
    self._currentSymbol = State(wrappedValue: selected.wrappedValue)
    self._currentSymbolVariant = State(wrappedValue: symbolVariant.wrappedValue)
@@ -61,8 +64,8 @@ extension VLstack
        .opacity(0)
        .disabled(true)
 
-      Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SheetTitle",
-                                                 fallbackModule: .module))
+      Text(verbatim: title ?? Bundle.main.localizedString("I18N-VLSFSymbolKit.SheetTitle",
+                                                          fallbackModule: .module))
        .frame(maxWidth: .infinity, alignment: .center)
 
       Button(Bundle.main.localizedString("I18N-VLSFSymbolKit.ButtonOK",

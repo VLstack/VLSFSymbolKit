@@ -11,6 +11,7 @@ extension VLstack
   private let canChangeVariants: Bool
   private let detents: Set<PresentationDetent>
   private let noSelection: () -> NoSelection
+  private let title: String?
   private let accentColor: Color?
 
   @State private var isPresented: Bool = false
@@ -19,6 +20,8 @@ extension VLstack
   public init(selected: Binding<VLstack.SFSymbol?>,
               symbolVariant: VLstack.SFSymbolVariants = VLstack.SFSymbolVariants(SymbolVariants.none),
               detents: Set<PresentationDetent> = [ .medium, .large ],
+              title: String? = nil,
+              accentColor: Color? = nil,
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
   {
    self._selected = selected
@@ -27,18 +30,23 @@ extension VLstack
    self.canChangeVariants = false
    self.detents = detents
    self.noSelection = noSelection
-   self.accentColor = nil
+   self.title = title
+   self.accentColor = accentColor
    self._initialDetent = State(wrappedValue: detents.first ?? .medium)
   }
 
   public init(selected: Binding<VLstack.SFSymbol?>,
               symbolVariant: SymbolVariants,
               detents: Set<PresentationDetent> = [ .medium, .large ],
+              title: String? = nil,
+              accentColor: Color? = nil,
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
   {
    self.init(selected: selected,
              symbolVariant: VLstack.SFSymbolVariants(symbolVariant),
              detents: detents,
+             title: title,
+             accentColor: accentColor,
              noSelection: noSelection)
   }
 
@@ -46,6 +54,7 @@ extension VLstack
               symbolVariant: Binding<VLstack.SFSymbolVariants?>,
               allowedVariants: [ VLstack.SFSymbolVariantShape ]? = nil,
               detents: Set<PresentationDetent> = [ .medium, .large ],
+              title: String? = nil,
               accentColor: Color? = nil,
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
   {
@@ -55,6 +64,7 @@ extension VLstack
    self.canChangeVariants = true
    self.detents = detents
    self.noSelection = noSelection
+   self.title = title
    self.accentColor = accentColor
    self._initialDetent = State(wrappedValue: detents.first ?? .medium)
   }
@@ -72,6 +82,7 @@ extension VLstack
                                 symbolVariant: $symbolVariant,
                                 allowedVariants: allowedVariants,
                                 canChangeVariants: canChangeVariants,
+                                title: title,
                                 accentColor: accentColor,
                                 noSelection: noSelection)
      .presentationDetents(detents, selection: $initialDetent)
