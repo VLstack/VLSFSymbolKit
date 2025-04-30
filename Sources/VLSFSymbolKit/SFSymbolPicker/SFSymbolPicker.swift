@@ -53,7 +53,7 @@ extension VLstack
   public init(selected: Binding<VLstack.SFSymbol?>,
               symbolVariant: Binding<VLstack.SFSymbolVariants?>,
               allowedVariants: [ VLstack.SFSymbolVariantShape ]? = nil,
-              detents: Set<PresentationDetent> = [ .medium, .large ],
+              detents: Set<PresentationDetent> = [ .medium ],
               title: String? = nil,
               accentColor: Color? = nil,
               @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
