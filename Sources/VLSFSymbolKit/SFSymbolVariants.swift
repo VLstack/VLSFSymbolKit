@@ -26,6 +26,13 @@ extension VLstack
 
  public struct SFSymbolVariants: Hashable, Codable
  {
+  public static var none: Self { .init(SymbolVariants.none) }
+  public static var circle: Self { .init(SymbolVariants.circle) }
+  public static var fill: Self { .init(SymbolVariants.fill) }
+  public static var rectangle: Self { .init(SymbolVariants.rectangle) }
+  public static var square: Self { .init(SymbolVariants.square) }
+  public static var slash: Self { .init(SymbolVariants.slash) }
+
   public var values: Set<SFSymbolVariantShape> = []
 
   public init(_ variant: SymbolVariants?)
