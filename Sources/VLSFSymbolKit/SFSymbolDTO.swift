@@ -13,10 +13,10 @@ extension VLstack
    VLstack.SFSymbolVariants(stringEncoded: encodedVariant)
   }
 
-  public init(_ sfSymbol: VLstack.SFSymbol,
+  public init(_ sfSymbol: VLstack.SFSymbol?,
               variant: VLstack.SFSymbolVariants? = nil)
   {
-   self.sfSymbol = sfSymbol
+   self.sfSymbol = sfSymbol ?? .questionmark
    self.encodedVariant = ( variant ?? VLstack.SFSymbolVariants(SymbolVariants.none) ).stringEncoded
   }
  }
