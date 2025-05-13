@@ -5,7 +5,7 @@ extension VLstack
 {
  public struct SFSymbolDTO: Equatable, Codable, Hashable, Sendable
  {
-  public let sfSymbol: VLstack.SFSymbol?
+  public let sfSymbol: VLstack.SFSymbol
   private let encodedVariant: String
 
   public var variant: VLstack.SFSymbolVariants
@@ -13,7 +13,7 @@ extension VLstack
    VLstack.SFSymbolVariants(stringEncoded: encodedVariant)
   }
 
-  public init(_ sfSymbol: VLstack.SFSymbol?,
+  public init(_ sfSymbol: VLstack.SFSymbol,
               variant: VLstack.SFSymbolVariants? = nil)
   {
    self.sfSymbol = sfSymbol
