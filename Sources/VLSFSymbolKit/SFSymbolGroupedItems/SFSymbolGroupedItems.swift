@@ -231,6 +231,8 @@ extension VLstack.SFSymbolGroup
   { items_8.append(.init(.chairLounge, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_8.append(.init(.cooktop, [])) }
+  if #available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  { items_8.append(.init(.cupAndSaucer, ["coffee"])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_8.append(.init(.dryer, [])) }
   if #available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
@@ -271,6 +273,8 @@ extension VLstack.SFSymbolGroup
   { items_8.append(.init(.stove, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_8.append(.init(.tableFurniture, [])) }
+  if #available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  { items_8.append(.init(.takeoutbagAndCupAndStraw, ["coffee"])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_8.append(.init(.toilet, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
@@ -650,6 +654,8 @@ extension VLstack.SFSymbolGroup
   { items_17.append(.init(.lockOpenTrianglebadgeExclamationmark, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_17.append(.init(.lockRotation, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_17.append(.init(.lockShield, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_17.append(.init(.lockTrianglebadgeExclamationmark, [])) }
   if #available(iOS 16.1, macOS 13.0, macCatalyst 16.1, tvOS 16.1, watchOS 9.1, visionOS 1.0, *)

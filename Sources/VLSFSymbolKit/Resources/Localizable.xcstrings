@@ -2,12 +2,37 @@
   "sourceLanguage" : "en",
   "strings" : {
     "circle" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "circle"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "círculo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cercle"
+          }
+        }
+      }
     },
     "I18N-VLSFSymbolKit.ButtonOK" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "es" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -30,6 +55,12 @@
             "value" : "Arrows"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flechas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45,6 +76,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Extended arrows"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flechas extendidas"
           }
         },
         "fr" : {
@@ -64,6 +101,12 @@
             "value" : "Commerce"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comercio"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -79,6 +122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Communication"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comunicación"
           }
         },
         "fr" : {
@@ -98,6 +147,12 @@
             "value" : "Connectivity"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectividad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -113,6 +168,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Devices"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dispositivos"
           }
         },
         "fr" : {
@@ -132,10 +193,39 @@
             "value" : "Editing"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edición"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edition"
+          }
+        }
+      }
+    },
+    "I18N-VLSFSymbolKit.group.health" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salud"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Santé"
           }
         }
       }
@@ -147,6 +237,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Home"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hogar"
           }
         },
         "fr" : {
@@ -166,6 +262,12 @@
             "value" : "Humans"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Humanos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -181,6 +283,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Interface"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interfaz"
           }
         },
         "fr" : {
@@ -200,6 +308,12 @@
             "value" : "Math"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Matemáticas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -217,10 +331,39 @@
             "value" : "Media"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medios"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Média"
+          }
+        }
+      }
+    },
+    "I18N-VLSFSymbolKit.group.multimedia" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multimedia"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multimedia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multimédia"
           }
         }
       }
@@ -232,6 +375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nature"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naturaleza"
           }
         },
         "fr" : {
@@ -251,6 +400,12 @@
             "value" : "Numbers"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Números"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -266,6 +421,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Objects"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objetos"
           }
         },
         "fr" : {
@@ -285,6 +446,12 @@
             "value" : "Privacy"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacidad"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -300,6 +467,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Shapes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formas"
           }
         },
         "fr" : {
@@ -319,6 +492,12 @@
             "value" : "Status"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -334,6 +513,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Text formatting"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formato de texto"
           }
         },
         "fr" : {
@@ -353,6 +538,12 @@
             "value" : "Time"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -368,6 +559,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Transports"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transportes"
           }
         },
         "fr" : {
@@ -387,6 +584,12 @@
             "value" : "Weather"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clima"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -404,6 +607,12 @@
             "value" : "book"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "libro"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -419,6 +628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "circle"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "círculo"
           }
         },
         "fr" : {
@@ -461,6 +676,12 @@
             "value" : "Icons"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -468,9 +689,6 @@
           }
         }
       }
-    },
-    "Key 1" : {
-      "extractionState" : "manual"
     }
   },
   "version" : "1.0"

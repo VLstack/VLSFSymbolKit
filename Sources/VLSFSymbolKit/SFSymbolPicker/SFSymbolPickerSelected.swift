@@ -22,8 +22,14 @@ extension VLstack
   {
    if let selected
    {
-    Image(selected)
-     .symbolVariant(symbolVariant.nativeVariant)
+    HStack(alignment: .center,
+           spacing: 0)
+    {
+     Image(selected)
+      .sfSymbolVariant(symbolVariant)
+    }
+    .frame(minWidth: 48, minHeight: 48, alignment: .center)
+    .aspectRatio(1, contentMode: .fit)
    }
    else
    {

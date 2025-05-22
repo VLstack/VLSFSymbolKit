@@ -2,7 +2,7 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 475 symbols
+ // 478 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
   // MARK: - A | 54 symbols
@@ -256,7 +256,7 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case buttonRoundedtopHorizontal = "button.roundedtop.horizontal"
 
-  // MARK: - C | 58 symbols
+  // MARK: - C | 59 symbols
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case cablecar
 
@@ -430,6 +430,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case cube
+
+  @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  case cupAndSaucer = "cup.and.saucer"
 
   // MARK: - D | 18 symbols
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -687,7 +690,7 @@ extension VLstack
   @available(iOS 15.4, macOS 12.3, macCatalyst 15.4, tvOS 15.4, watchOS 8.5, visionOS 1.0, *)
   case keyViewfinder = "key.viewfinder"
 
-  // MARK: - L | 29 symbols
+  // MARK: - L | 30 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case ladybug
 
@@ -771,6 +774,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case lockRotation = "lock.rotation"
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case lockShield = "lock.shield"
 
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case lockTrianglebadgeExclamationmark = "lock.trianglebadge.exclamationmark"
@@ -1301,12 +1307,15 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case sunSnow = "sun.snow"
 
-  // MARK: - T | 39 symbols
+  // MARK: - T | 40 symbols
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case tableFurniture = "table.furniture"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case tag
+
+  @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  case takeoutbagAndCupAndStraw = "takeoutbag.and.cup.and.straw"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case textAligncenter = "text.aligncenter"
