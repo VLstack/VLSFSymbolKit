@@ -4,14 +4,13 @@ import SwiftUI
 
 extension VLstack
 {
- package struct SFSymbolPickerSheet<NoSelection: View>: View
+ package struct SFSymbolPickerSheet: View
  {
   @Binding private var isPresented: Bool
   @Binding private var selected: VLstack.SFSymbol?
   @Binding private var symbolVariant: VLstack.SFSymbolVariants?
   private let allowedVariants: [ VLstack.SFSymbolVariantShape ]?
   private let canChangeVariants: Bool
-  private let noSelection: () -> NoSelection
   private let title: String?
   private let accentColor: Color
 
@@ -34,15 +33,13 @@ extension VLstack
                allowedVariants: [ VLstack.SFSymbolVariantShape ]?,
                canChangeVariants: Bool,
                title: String? = nil,
-               accentColor: Color? = nil,
-               @ViewBuilder noSelection: @escaping () -> NoSelection)
+               accentColor: Color? = nil)
   {
    self._isPresented = isPresented
    self._selected = selected
    self._symbolVariant = symbolVariant
    self.allowedVariants = allowedVariants
    self.canChangeVariants = canChangeVariants
-   self.noSelection = noSelection
    self.title = title
    self.accentColor = accentColor ?? .blue
    self._currentSymbol = State(wrappedValue: selected.wrappedValue)
@@ -55,69 +52,40 @@ extension VLstack
    {
     VStack(spacing: 8)
     {
-     HStack
+     VLstack.SFSymbolPickerSheetTitle(title: title,
+                                      accentColor: accentColor,
+                                      currentSymbol: currentSymbol,
+                                      onConfirm: onConfirm)
+
+     VLstack.SFSymbolPickerSheetSearch(search: $search)
+
+     VLstack.SFSymbolPickerSheetVariantsPicker(isPresented: canChangeVariants,
+                                               variant: $currentSymbolVariant,
+                                               allowedVariants: allowedVariants)
+
+     HStack(alignment: .firstTextBaseline)
      {
-      Button(Bundle.main.localizedString("I18N-VLSFSymbolKit.ButtonOK",
-                                         fallbackModule: .module),
-             action: {})
-       .buttonStyle(.borderless)
-       .opacity(0)
-       .disabled(true)
+      Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SelectedSymbol",
+                                                 fallbackModule: .module))
+       .textCase(nil)
+       .underline()
 
-      Text(verbatim: title ?? Bundle.main.localizedString("I18N-VLSFSymbolKit.SheetTitle",
-                                                          fallbackModule: .module))
-       .frame(maxWidth: .infinity, alignment: .center)
-
-      Button(Bundle.main.localizedString("I18N-VLSFSymbolKit.ButtonOK",
-                                         fallbackModule: .module))
+      if let currentSymbol
       {
-       self.selected = currentSymbol
-       self.symbolVariant = currentSymbolVariant
-       self.isPresented = false
+       Image(currentSymbol)
+        .sfSymbolVariant(currentSymbolVariant)
+        .fontWeight(.regular)
       }
-      .buttonStyle(.plain)
-      .foregroundStyle(accentColor)
-      .disabled(currentSymbol == nil)
-     }
-     .padding(.horizontal)
-     .padding(.top)
-     .font(.headline)
-
-     HStack
-     {
-      Image(.magnifyingglass)
-
-      TextField(text: $search)
+      else
       {
-       Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SearchForASymbol",
+       Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.NoSelectedSymbol",
                                                   fallbackModule: .module))
+       .fontWeight(.regular)
       }
-      .textFieldStyle(.plain)
-      .autocorrectionDisabled()
-      .textInputAutocapitalization(.never)
-
-      Image(.xmark)
-       .symbolVariant(.circle)
-       .opacity(search == "" ? 0 : 1)
-       .onTapGesture { search = "" }
      }
-     .font(.callout)
-     .padding(5)
-     .background(Color(uiColor: .secondarySystemBackground))
+     .font(.headline)
      .frame(maxWidth: .infinity, alignment: .leading)
-     .clipShape(.rect(cornerRadius: 5))
-     .overlay
-     {
-      RoundedRectangle(cornerRadius: 5).stroke(Color(uiColor: .separator), lineWidth: 0.5)
-     }
-     .padding(.horizontal)
-
-     if canChangeVariants
-     {
-      VLstack.SFSymbolVariantsPicker(variant: $currentSymbolVariant,
-                                     allowedVariants: allowedVariants)
-      .padding(.horizontal)
-     }
+     .padding(.vertical, 5)
 
      ScrollView
      {
@@ -155,7 +123,6 @@ extension VLstack
         }
        }
       }
-      .padding(.horizontal)
      }
      .overlay
      {
@@ -197,6 +164,7 @@ extension VLstack
       }
      }
     }
+    .padding(.horizontal)
     .background(Color(uiColor: .systemBackground))
    }
    else
@@ -215,9 +183,19 @@ extension VLstack
     }
    }
   }
+
+  // MARK: - Functions
+  @MainActor
+  private func onConfirm()
+  {
+   self.selected = currentSymbol
+   self.symbolVariant = currentSymbolVariant
+   self.isPresented = false
+  }
  }
 }
 
+// MARK: - SFSymbolGrouper
 extension VLstack
 {
  private final actor SFSymbolGrouper
@@ -237,6 +215,14 @@ extension VLstack
    if let cache = symbolsExistenceCache[cacheKey]
    {
     return cache
+   }
+
+   if symbolVariant.isEmpty
+   {
+    let results = UIImage(systemName: systemName) != nil
+    symbolsExistenceCache[systemName] = results
+
+    return results
    }
 
    let knownVariants: Set<String> = [ "circle", "square", "rectangle", "fill", "slash" ]
@@ -264,42 +250,40 @@ extension VLstack
   {
    let foldedSearch = search.folding(options: [ .diacriticInsensitive, .caseInsensitive ], locale: .current).trimmingCharacters(in: .whitespacesAndNewlines)
 
-   if foldedSearch.isEmpty && symbolVariant.isEmpty
-   {
-    return self.groups
-   }
+//   if foldedSearch.isEmpty && symbolVariant.isEmpty
+//   {
+//    return self.groups
+//   }
 
    return self.groups.compactMap
    {
     group in
     let groupNameMatches = group.name.folding(options: [ .diacriticInsensitive, .caseInsensitive ], locale: .current)
                                      .contains(foldedSearch)
-    if groupNameMatches
-    {
-     return VLstack.SFSymbolGroup(key: group.key, name: group.name, items: group.items)
-    }
+//    if groupNameMatches
+//    {
+//     return VLstack.SFSymbolGroup(key: group.key, name: group.name, items: group.items)
+//    }
 
     let filteredItems = group.items.filter
     {
      item in
-     if symbolVariant != ""
-     {
+//     if symbolVariant != ""
+//     {
       guard exist(item.sfSymbol.rawValue, symbolVariant) else { return false }
-     }
+//     }
 
      if foldedSearch.isEmpty { return true }
+     if groupNameMatches { return true }
      if item.sfSymbol.rawValue.contains(foldedSearch) { return true }
      if item.keywords.contains(where: { $0.contains(foldedSearch) }) { return true }
 
      return false
     }
 
-    if !filteredItems.isEmpty
-    {
-     return VLstack.SFSymbolGroup(key: group.key, name: group.name, items: filteredItems)
-    }
+    guard !filteredItems.isEmpty else { return nil }
 
-    return nil
+    return VLstack.SFSymbolGroup(key: group.key, name: group.name, items: filteredItems)
    }
   }
  }

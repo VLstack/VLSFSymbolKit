@@ -71,9 +71,9 @@ extension VLstack
 
   public var body: some View
   {
-   VLstack.SFSymbolPickerSelected(selected: selected,
-                                  symbolVariant: symbolVariant ?? VLstack.SFSymbolVariants(SymbolVariants.none),
-                                  noSelection: noSelection)
+   VLstack.SFSymbolPickerActive(selected: selected,
+                                symbolVariant: symbolVariant ?? VLstack.SFSymbolVariants(SymbolVariants.none),
+                                noSelection: noSelection)
    .onTapGesture { isPresented.toggle() }
    .sheet(isPresented: $isPresented)
    {
@@ -83,10 +83,9 @@ extension VLstack
                                 allowedVariants: allowedVariants,
                                 canChangeVariants: canChangeVariants,
                                 title: title,
-                                accentColor: accentColor,
-                                noSelection: noSelection)
-     .presentationDetents(detents, selection: $initialDetent)
-     .presentationDragIndicator(.visible)
+                                accentColor: accentColor)
+    .presentationDetents(detents, selection: $initialDetent)
+    .presentationDragIndicator(.visible)
    }
   }
  }

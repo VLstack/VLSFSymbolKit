@@ -3,7 +3,7 @@ import SwiftUI
 
 extension VLstack
 {
- package struct SFSymbolPickerSelected<NoSelection: View>: View
+ package struct SFSymbolPickerActive<NoSelection: View>: View
  {
   private let selected: VLstack.SFSymbol?
   private let symbolVariant: VLstack.SFSymbolVariants
