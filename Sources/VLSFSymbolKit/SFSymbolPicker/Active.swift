@@ -30,6 +30,7 @@ extension VLstack
     }
     .frame(minWidth: 48, minHeight: 48, alignment: .center)
     .aspectRatio(1, contentMode: .fit)
+    .contentShape(.rect)
    }
    else
    {
