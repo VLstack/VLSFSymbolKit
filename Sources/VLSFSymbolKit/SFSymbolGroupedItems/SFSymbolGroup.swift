@@ -18,6 +18,12 @@ extension VLstack
    self.name = Bundle.main.localizedString("I18N-VLSFSymbolKit.group.\(key)",
                                            fallbackModule: .module)
    self.items = items
+   #if DEBUG
+   if self.name == "I18N-VLSFSymbolKit.group.\(key)"
+   {
+    print("I18N missing group \(key) => I18N-VLSFSymbolKit.group.\(key)")
+   }
+   #endif
   }
 
   public init(key: String,
