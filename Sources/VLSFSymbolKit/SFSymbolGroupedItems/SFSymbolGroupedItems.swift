@@ -123,7 +123,7 @@ extension VLstack.SFSymbolGroup
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_3.append(.init(.bag, ["bag"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
-  { items_3.append(.init(.bagBadgeMinus, ["bag"])) }
+  { items_3.append(.init(.bagBadgeMinus, ["bag", "minus"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_3.append(.init(.bagBadgePlus, ["bag"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -131,7 +131,7 @@ extension VLstack.SFSymbolGroup
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_3.append(.init(.cart, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
-  { items_3.append(.init(.cartBadgeMinus, ["bag"])) }
+  { items_3.append(.init(.cartBadgeMinus, ["bag", "minus"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_3.append(.init(.cartBadgePlus, ["bag"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -531,9 +531,9 @@ extension VLstack.SFSymbolGroup
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_13.append(.init(.infinity, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
-  { items_13.append(.init(.minus, [])) }
+  { items_13.append(.init(.minus, ["minus"])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
-  { items_13.append(.init(.minusDiamond, [])) }
+  { items_13.append(.init(.minusDiamond, ["minus"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_13.append(.init(.multiply, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -623,7 +623,7 @@ extension VLstack.SFSymbolGroup
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_15.append(.init(.forwardFrame, [])) }
   if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
-  { items_15.append(.init(.minusArrowTriangleheadCounterclockwise, [])) }
+  { items_15.append(.init(.minusArrowTriangleheadCounterclockwise, ["minus"])) }
   if #available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_15.append(.init(.pause, [])) }
   if #available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)

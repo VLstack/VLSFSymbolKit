@@ -1426,6 +1426,29 @@
         }
       }
     },
+    "I18N-VLSFSymbolKit.keyword.minus" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "minus"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "menos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "moins"
+          }
+        }
+      }
+    },
     "I18N-VLSFSymbolKit.keyword.moon" : {
       "extractionState" : "manual",
       "localizations" : {
