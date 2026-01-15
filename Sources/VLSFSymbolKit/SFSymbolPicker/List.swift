@@ -9,7 +9,7 @@ extension VLstack
   @Binding private var currentSymbol: VLstack.SFSymbol?
   private let currentSymbolVariant: VLstack.SFSymbolVariants?
 
-  private let columns = [ GridItem(.adaptive(minimum: 48), spacing: 16) ]
+  private let columns = [ GridItem(.adaptive(minimum: 64), spacing: 16) ]
 
   @Namespace private var namespace
 

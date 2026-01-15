@@ -34,7 +34,7 @@ extension VLstack
      .clipShape(.rect(cornerRadius: 5))
 
     Image(target)
-     .font(.system(size: 24))
+     .font(.system(size: 32))
      .symbolVariant(symbolVariant?.nativeVariant ?? .none)
      .opacity(selected == target ? 1 : 0.65)
    }
