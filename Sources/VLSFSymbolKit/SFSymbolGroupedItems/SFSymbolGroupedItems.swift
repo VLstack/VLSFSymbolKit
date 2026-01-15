@@ -25,6 +25,8 @@ extension VLstack.SFSymbolGroup
   { items_0.append(.init(.arrowTriangleDown, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_0.append(.init(.arrowTriangleUp, [])) }
+  if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  { items_0.append(.init(.chevronBackward, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_0.append(.init(.chevronDown, [])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
@@ -899,6 +901,12 @@ extension VLstack.SFSymbolGroup
   if !items_17.isEmpty { results.append(VLstack.SFSymbolGroup(key: "number", items: items_17)) }
 
   var items_18: [ VLstack.SFSymbolItem ] = []
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_18.append(.init(.appleImagePlayground, [])) }
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_18.append(.init(.appleIntelligence, [])) }
+  if #available(iOS 18.5, macOS 15.5, macCatalyst 18.5, tvOS 18.5, watchOS 11.5, visionOS 2.5, *)
+  { items_18.append(.init(.appleIntelligenceBadgeXmark, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_18.append(.init(.archivebox, ["box", "item", "article"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -919,6 +927,8 @@ extension VLstack.SFSymbolGroup
   { items_18.append(.init(.mappinAndEllipse, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_18.append(.init(.medal, [])) }
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_18.append(.init(.progressIndicator, [])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_18.append(.init(.ruler, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -1314,6 +1324,12 @@ extension VLstack.SFSymbolGroup
   { items_23.append(.init(.characterCursorIbeam, [])) }
   if #available(iOS 14.5, macOS 11.3, macCatalyst 14.5, tvOS 14.5, watchOS 7.4, visionOS 1.0, *)
   { items_23.append(.init(.characterTextbox, [])) }
+  if #available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  { items_23.append(.init(.checklist, [])) }
+  if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  { items_23.append(.init(.checklistChecked, [])) }
+  if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  { items_23.append(.init(.checklistUnchecked, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_23.append(.init(.decreaseIndent, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)

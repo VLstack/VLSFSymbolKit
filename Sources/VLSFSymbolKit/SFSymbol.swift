@@ -2,10 +2,10 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 745 symbols
+ // 753 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
-  // MARK: - A | 59 symbols
+  // MARK: - A | 62 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case abc
 
@@ -41,6 +41,15 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case app
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case appleImagePlayground = "apple.image.playground"
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case appleIntelligence = "apple.intelligence"
+
+  @available(iOS 18.5, macOS 15.5, macCatalyst 18.5, tvOS 18.5, watchOS 11.5, visionOS 2.5, *)
+  case appleIntelligenceBadgeXmark = "apple.intelligence.badge.xmark"
 
   @available(iOS 14.2, macOS 11.0, macCatalyst 14.2, tvOS 14.2, watchOS 7.1, visionOS 1.0, *)
   case aqiHigh = "aqi.high"
@@ -304,7 +313,7 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case buttonRoundedtopHorizontal = "button.roundedtop.horizontal"
 
-  // MARK: - C | 76 symbols
+  // MARK: - C | 80 symbols
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case cablecar
 
@@ -413,11 +422,23 @@ extension VLstack
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case chartXyaxisLine = "chart.xyaxis.line"
 
+  @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+  case checklist
+
+  @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  case checklistChecked = "checklist.checked"
+
+  @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  case checklistUnchecked = "checklist.unchecked"
+
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case checkmark
 
   @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
   case checkmarkArrowTriangleheadCounterclockwise = "checkmark.arrow.trianglehead.counterclockwise"
+
+  @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  case chevronBackward = "chevron.backward"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case chevronDown = "chevron.down"
@@ -1376,7 +1397,7 @@ extension VLstack
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case oven
 
-  // MARK: - P | 24 symbols
+  // MARK: - P | 25 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case paragraphsign
 
@@ -1445,6 +1466,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case printer
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case progressIndicator = "progress.indicator"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case pSquare = "p.square"
