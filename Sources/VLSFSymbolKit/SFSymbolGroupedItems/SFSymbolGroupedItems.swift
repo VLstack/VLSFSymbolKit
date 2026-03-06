@@ -1370,6 +1370,10 @@ extension VLstack.SFSymbolGroup
   { items_23.append(.init(.textAlignleft, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_23.append(.init(.textAlignright, [])) }
+  if #available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_23.append(.init(.textAppend, [])) }
+  if #available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_23.append(.init(.textInsert, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_23.append(.init(.textJustify, [])) }
   if #available(iOS 15.1, macOS 12.0, macCatalyst 15.1, tvOS 15.1, watchOS 8.1, visionOS 1.0, *)
@@ -1415,6 +1419,10 @@ extension VLstack.SFSymbolGroup
   { items_24.append(.init(.calendarBadgePlus, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_24.append(.init(.clock, [])) }
+  if #available(iOS 14.2, macOS 11.0, macCatalyst 14.2, tvOS 14.2, watchOS 7.1, visionOS 1.0, *)
+  { items_24.append(.init(.clockArrow2Circlepath, [])) }
+  if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  { items_24.append(.init(.clockArrowCirclepath, [])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_24.append(.init(.deskclock, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)

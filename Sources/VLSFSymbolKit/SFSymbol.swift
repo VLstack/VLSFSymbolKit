@@ -2,7 +2,7 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 753 symbols
+ // 757 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
   // MARK: - A | 62 symbols
@@ -313,7 +313,7 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case buttonRoundedtopHorizontal = "button.roundedtop.horizontal"
 
-  // MARK: - C | 80 symbols
+  // MARK: - C | 82 symbols
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case cablecar
 
@@ -463,6 +463,12 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case clock
+
+  @available(iOS 14.2, macOS 11.0, macCatalyst 14.2, tvOS 14.2, watchOS 7.1, visionOS 1.0, *)
+  case clockArrow2Circlepath = "clock.arrow.2.circlepath"
+
+  @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  case clockArrowCirclepath = "clock.arrow.circlepath"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case cloud
@@ -1698,7 +1704,7 @@ extension VLstack
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case syringe
 
-  // MARK: - T | 50 symbols
+  // MARK: - T | 52 symbols
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case tableFurniture = "table.furniture"
 
@@ -1729,6 +1735,9 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case textAlignright = "text.alignright"
 
+  @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case textAppend = "text.append"
+
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case textformat
 
@@ -1758,6 +1767,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case textformatSuperscript = "textformat.superscript"
+
+  @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case textInsert = "text.insert"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case textJustify = "text.justify"
