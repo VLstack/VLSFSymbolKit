@@ -2,7 +2,7 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 757 symbols
+ // 763 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
   // MARK: - A | 62 symbols
@@ -630,7 +630,7 @@ extension VLstack
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case dumbbell
 
-  // MARK: - E | 21 symbols
+  // MARK: - E | 22 symbols
   @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case ear
 
@@ -663,6 +663,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case envelopeOpen = "envelope.open"
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case equal
 
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case eraser
@@ -1034,7 +1037,7 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case fSquare = "f.square"
 
-  // MARK: - G | 4 symbols
+  // MARK: - G | 6 symbols
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case gCircle = "g.circle"
 
@@ -1043,6 +1046,12 @@ extension VLstack
 
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case giftcard
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case greaterthan
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case greaterthanorequalto
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case gSquare = "g.square"
@@ -1183,7 +1192,7 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case kSquare = "k.square"
 
-  // MARK: - L | 33 symbols
+  // MARK: - L | 35 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case ladybug
 
@@ -1210,6 +1219,12 @@ extension VLstack
 
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case leaf
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case lessthan
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case lessthanorequalto
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case lightbulb
@@ -1368,7 +1383,7 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case multiply
 
-  // MARK: - N | 4 symbols
+  // MARK: - N | 5 symbols
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case nCircle = "n.circle"
 
@@ -1377,6 +1392,9 @@ extension VLstack
 
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case networkSlash = "network.slash"
+
+  @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  case notequal
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case nSquare = "n.square"

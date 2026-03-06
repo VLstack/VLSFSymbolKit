@@ -530,14 +530,26 @@ extension VLstack.SFSymbolGroup
   var items_13: [ VLstack.SFSymbolItem ] = []
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_13.append(.init(.divide, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_13.append(.init(.equal, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_13.append(.init(.greaterthan, [])) }
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_13.append(.init(.greaterthanorequalto, [])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_13.append(.init(.infinity, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_13.append(.init(.lessthan, [])) }
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_13.append(.init(.lessthanorequalto, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_13.append(.init(.minus, ["minus"])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   { items_13.append(.init(.minusDiamond, ["minus"])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_13.append(.init(.multiply, [])) }
+  if #available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+  { items_13.append(.init(.notequal, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_13.append(.init(.plus, [])) }
   if !items_13.isEmpty { results.append(VLstack.SFSymbolGroup(key: "math", items: items_13)) }
