@@ -18,9 +18,7 @@ extension VLstack
 
   @State private var groups: [ VLstack.SFSymbolGroup ] = []
   @State private var isLoaded: Bool = false
-  @State private var isFiltering: Bool = false
   @State private var search: String = ""
-  @State private var taskId: Int = 0
 
   @State private var currentSymbol: VLstack.SFSymbol?
   @State private var currentSymbolVariant: VLstack.SFSymbolVariants?
@@ -74,38 +72,15 @@ extension VLstack
        ContentUnavailableView.search(text: search)
       }
      }
-     .overlay
-     {
-      if isFiltering
-      {
-       ProgressView()
-      }
-     }
     }
     .foregroundStyle(Color(uiColor: .label))
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-    .onChange(of: search) { taskId += 1 }
-    .onChange(of: currentSymbolVariant) { taskId += 1 }
-    .task(id: taskId)
+    .task(id: FetchTrigger(search: search, symbolVariant: currentSymbolVariant?.stringEncoded))
     {
-     isFiltering = true
-     Task
-     {
-      guard !Task.isCancelled
-      else
-      {
-       await MainActor.run { isFiltering = false }
-       return
-      }
-
-      let filtered = await grouper.filter(search: search,
-                                          symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
-      await MainActor.run
-      {
-       self.groups = filtered
-       self.isFiltering = false
-      }
-     }
+     let result = await grouper.filter(search: search,
+                                       symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
+     guard !Task.isCancelled else { return }
+     groups = result
     }
     .padding(.horizontal)
     .background(Color(uiColor: .systemBackground))
@@ -116,15 +91,20 @@ extension VLstack
     .task
     {
      await grouper.load()
-     let filtered = await grouper.filter(search: search,
-                                         symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
-     await MainActor.run
-     {
-      self.groups = filtered
-      self.isLoaded = true
-     }
+     let result = await grouper.filter(search: search,
+                                       symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
+     guard !Task.isCancelled else { return }
+     groups = result
+     isLoaded = true
     }
    }
+  }
+
+  // MARK: - Structs
+  private struct FetchTrigger: Equatable
+  {
+   let search: String
+   let symbolVariant: String?
   }
 
   // MARK: - Functions
