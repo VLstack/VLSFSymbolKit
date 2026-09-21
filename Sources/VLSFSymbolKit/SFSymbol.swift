@@ -2,7 +2,7 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 763 symbols
+ // 768 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
   // MARK: - A | 62 symbols
@@ -313,7 +313,7 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case buttonRoundedtopHorizontal = "button.roundedtop.horizontal"
 
-  // MARK: - C | 82 symbols
+  // MARK: - C | 83 symbols
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case cablecar
 
@@ -460,6 +460,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case circle
+
+  @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  case circleDashed = "circle.dashed"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case clock
@@ -1192,7 +1195,7 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case kSquare = "k.square"
 
-  // MARK: - L | 35 symbols
+  // MARK: - L | 36 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case ladybug
 
@@ -1243,6 +1246,9 @@ extension VLstack
 
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case line3HorizontalDecrease = "line.3.horizontal.decrease"
+
+  @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  case lineDiagonal = "line.diagonal"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case link
@@ -1383,7 +1389,7 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case multiply
 
-  // MARK: - N | 5 symbols
+  // MARK: - N | 6 symbols
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case nCircle = "n.circle"
 
@@ -1392,6 +1398,9 @@ extension VLstack
 
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case networkSlash = "network.slash"
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case nosign
 
   @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
   case notequal
@@ -1571,7 +1580,7 @@ extension VLstack
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case ruler
 
-  // MARK: - S | 50 symbols
+  // MARK: - S | 51 symbols
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case sailboat
 
@@ -1664,6 +1673,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case sSquare = "s.square"
+
+  @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  case stairs
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case star
@@ -1905,9 +1917,12 @@ extension VLstack
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case vSquare = "v.square"
 
-  // MARK: - W | 9 symbols
+  // MARK: - W | 10 symbols
   @available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   case washer
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case waveformPath = "waveform.path"
 
   @available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case waveformPathEcg = "waveform.path.ecg"

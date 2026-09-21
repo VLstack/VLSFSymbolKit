@@ -236,6 +236,8 @@ extension VLstack.SFSymbolGroup
   { items_7.append(.init(.line2HorizontalDecreaseCircle, [])) }
   if #available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   { items_7.append(.init(.line3HorizontalDecrease, [])) }
+  if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  { items_7.append(.init(.lineDiagonal, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_7.append(.init(.pencil, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
@@ -309,6 +311,8 @@ extension VLstack.SFSymbolGroup
   { items_8.append(.init(.thermometerVariableAndFigure, ["human"])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_8.append(.init(.vialViewfinder, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_8.append(.init(.waveformPath, [])) }
   if #available(iOS 13.0, macOS 10.15, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_8.append(.init(.waveformPathEcg, [])) }
   if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
@@ -366,6 +370,8 @@ extension VLstack.SFSymbolGroup
   { items_9.append(.init(.sink, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_9.append(.init(.sofa, [])) }
+  if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+  { items_9.append(.init(.stairs, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_9.append(.init(.stove, [])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
@@ -996,6 +1002,8 @@ extension VLstack.SFSymbolGroup
   { items_19.append(.init(.lockShield, ["lock", "shield"])) }
   if #available(iOS 16.0, macOS 13.0, macCatalyst 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
   { items_19.append(.init(.lockTrianglebadgeExclamationmark, ["lock"])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_19.append(.init(.nosign, [])) }
   if #available(iOS 16.1, macOS 13.0, macCatalyst 16.1, tvOS 16.1, watchOS 9.1, visionOS 1.0, *)
   { items_19.append(.init(.questionmarkKeyFilled, ["key"])) }
   if !items_19.isEmpty { results.append(VLstack.SFSymbolGroup(key: "privacy", items: items_19)) }
@@ -1023,6 +1031,8 @@ extension VLstack.SFSymbolGroup
   { items_20.append(.init(.capsulePortrait, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_20.append(.init(.circle, [])) }
+  if #available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
+  { items_20.append(.init(.circleDashed, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_20.append(.init(.cube, [])) }
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
