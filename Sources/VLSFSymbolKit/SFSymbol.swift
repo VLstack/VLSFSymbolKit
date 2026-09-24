@@ -316,7 +316,7 @@ extension VLstack
   @available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   case buttonRoundedtopHorizontal = "button.roundedtop.horizontal"
 
-  // MARK: - C | 83 symbols
+  // MARK: - C | 84 symbols
   @available(iOS 15.0, macOS 12.0, macCatalyst 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
   case cablecar
 
@@ -466,6 +466,9 @@ extension VLstack
 
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case circleDashed = "circle.dashed"
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case circleFill = "circle.fill"
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case clock
