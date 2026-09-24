@@ -5,7 +5,7 @@ extension VLstack
  // 768 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
-  // MARK: - A | 62 symbols
+  // MARK: - A | 63 symbols
   @available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, visionOS 1.0, *)
   case abc
 
@@ -41,6 +41,9 @@ extension VLstack
 
   @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   case app
+
+  @available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  case appFill = "app.fill"
 
   @available(iOS 18.0, macOS 15.0, macCatalyst 18.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
   case appleImagePlayground = "apple.image.playground"

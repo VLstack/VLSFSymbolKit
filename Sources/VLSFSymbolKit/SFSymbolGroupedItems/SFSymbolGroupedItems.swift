@@ -1011,6 +1011,8 @@ extension VLstack.SFSymbolGroup
   var items_20: [ VLstack.SFSymbolItem ] = []
   if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
   { items_20.append(.init(.app, [])) }
+  if #available(iOS 13.0, macOS 11.0, macCatalyst 13.0, tvOS 13.0, watchOS 6.0, visionOS 1.0, *)
+  { items_20.append(.init(.appFill, [])) }
   if #available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
   { items_20.append(.init(.buttonAngledbottomHorizontalLeft, [])) }
   if #available(iOS 17.0, macOS 14.0, macCatalyst 17.0, tvOS 17.0, watchOS 10.0, visionOS 1.0, *)
