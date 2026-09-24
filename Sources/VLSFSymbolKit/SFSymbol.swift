@@ -2,7 +2,7 @@ import VLstackNamespace
 
 extension VLstack
 {
- // 768 symbols
+ // 770 symbols
  public enum SFSymbol: String, Codable, Sendable
  {
   // MARK: - A | 63 symbols
