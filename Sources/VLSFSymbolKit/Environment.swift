@@ -1,7 +1,6 @@
-import VLstackNamespace
 import SwiftUI
 
-extension VLstack.SFSymbol
+extension VLSFSymbol
 {
  @usableFromInline
  internal struct MaxHeightKey: EnvironmentKey
@@ -37,29 +36,29 @@ extension EnvironmentValues
  @usableFromInline
  internal var sfSymbolMaxHeight: CGFloat?
  {
-  get { self[VLstack.SFSymbol.MaxHeightKey.self] }
-  set { self[VLstack.SFSymbol.MaxHeightKey.self] = newValue }
+  get { self[VLSFSymbol.MaxHeightKey.self] }
+  set { self[VLSFSymbol.MaxHeightKey.self] = newValue }
  }
 
  @usableFromInline
  internal var sfSymbolMaxWidth: CGFloat?
  {
-  get { self[VLstack.SFSymbol.MaxWidthKey.self] }
-  set { self[VLstack.SFSymbol.MaxWidthKey.self] = newValue }
+  get { self[VLSFSymbol.MaxWidthKey.self] }
+  set { self[VLSFSymbol.MaxWidthKey.self] = newValue }
  }
 
  @usableFromInline
  internal var sfSymbolMinHeight: CGFloat?
  {
-  get { self[VLstack.SFSymbol.MinHeightKey.self] }
-  set { self[VLstack.SFSymbol.MinHeightKey.self] = newValue }
+  get { self[VLSFSymbol.MinHeightKey.self] }
+  set { self[VLSFSymbol.MinHeightKey.self] = newValue }
  }
 
  @usableFromInline
  internal var sfSymbolMinWidth: CGFloat?
  {
-  get { self[VLstack.SFSymbol.MinWidthKey.self] }
-  set { self[VLstack.SFSymbol.MinWidthKey.self] = newValue }
+  get { self[VLSFSymbol.MinWidthKey.self] }
+  set { self[VLSFSymbol.MinWidthKey.self] = newValue }
  }
 }
 

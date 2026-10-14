@@ -1,23 +1,19 @@
-import VLstackNamespace
 import SwiftUI
 
-extension VLstack
+public struct VLSFSymbolDTO: Equatable, Codable, Hashable, Sendable
 {
- public struct SFSymbolDTO: Equatable, Codable, Hashable, Sendable
+ public let sfSymbol: VLSFSymbol
+ private let encodedVariant: String
+
+ public var variant: VLSFSymbolVariants
  {
-  public let sfSymbol: VLstack.SFSymbol
-  private let encodedVariant: String
+  VLSFSymbolVariants(stringEncoded: encodedVariant)
+ }
 
-  public var variant: VLstack.SFSymbolVariants
-  {
-   VLstack.SFSymbolVariants(stringEncoded: encodedVariant)
-  }
-
-  public init(_ sfSymbol: VLstack.SFSymbol?,
-              variant: VLstack.SFSymbolVariants? = nil)
-  {
-   self.sfSymbol = sfSymbol ?? .questionmark
-   self.encodedVariant = ( variant ?? VLstack.SFSymbolVariants(SymbolVariants.none) ).stringEncoded
-  }
+ public init(_ sfSymbol: VLSFSymbol?,
+             variant: VLSFSymbolVariants? = nil)
+ {
+  self.sfSymbol = sfSymbol ?? .questionmark
+  self.encodedVariant = ( variant ?? VLSFSymbolVariants(SymbolVariants.none) ).stringEncoded
  }
 }

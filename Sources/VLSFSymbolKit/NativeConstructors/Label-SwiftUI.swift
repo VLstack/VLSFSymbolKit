@@ -1,17 +1,16 @@
 // TODO: add documentation
-import VLstackNamespace
 import SwiftUI
 
 public extension Label where Title == Text, Icon == Image
 {
 // nonisolated init(_ titleKey: LocalizedStringKey,
-//                  _ sfsymbol: VLstack.SFSymbol)
+//                  _ sfsymbol: VLSFSymbol)
 // {
 //  self.init(titleKey, systemImage: sfsymbol.rawValue)
 // }
 
  nonisolated init(_ title: String,
-                  _ sfSymbol: VLstack.SFSymbol)
+                  _ sfSymbol: VLSFSymbol)
  {
   self.init(title, systemImage: sfSymbol.rawValue)
  }
@@ -19,7 +18,7 @@ public extension Label where Title == Text, Icon == Image
 
 /*
  nonisolated init<S>(_ title: S,
-                   _ sfSymbol: VLstack.SFSymbol) where S : StringProtocol
+                   _ sfSymbol: VLSFSymbol) where S : StringProtocol
  {
   self.init(title, systemImage: sfSymbol.rawValue)
  }

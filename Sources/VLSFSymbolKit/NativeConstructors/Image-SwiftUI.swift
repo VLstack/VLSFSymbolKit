@@ -1,4 +1,3 @@
-import VLstackNamespace
 import SwiftUI
 
 public extension Image
@@ -11,7 +10,7 @@ public extension Image
  ///
  /// - Parameters:
  ///   - sfSymbol: The name of the system symbol image.
- nonisolated init(_ sfSymbol: VLstack.SFSymbol)
+ nonisolated init(_ sfSymbol: VLSFSymbol)
  {
   self.init(systemName: sfSymbol.rawValue)
  }
@@ -40,14 +39,14 @@ public extension Image
  /// symbol fills all three bars.](Image-3)
  ///
  /// - Parameters:
- ///   - sfSymbol: A value of type `VLstack.SFSymbol` representing
+ ///   - sfSymbol: A value of type `VLSFSymbol` representing
  ///     the system symbol to use for creating the image.
  ///   - variableValue: An optional `Double` value between `0.0`
  ///     and `1.0` that the rendered image can use to customize
  ///     its appearance, if specified. If the symbol doesn't support
  ///     variable values, this parameter has no effect. Use the SF Symbols
  ///     app to look up which symbols support variable values.
- nonisolated init(_ sfSymbol: VLstack.SFSymbol,
+ nonisolated init(_ sfSymbol: VLSFSymbol,
                   variableValue: Double?)
  {
   self.init(systemName: sfSymbol.rawValue, variableValue: variableValue)

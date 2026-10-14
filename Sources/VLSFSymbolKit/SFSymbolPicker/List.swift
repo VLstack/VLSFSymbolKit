@@ -1,63 +1,59 @@
-import VLstackNamespace
 import SwiftUI
 
-extension VLstack
+package struct VLSFSymbolPickerSheetList: View
 {
- package struct SFSymbolPickerSheetList: View
+ private let groups: [ VLSFSymbolGroup ]
+ @Binding private var currentSymbol: VLSFSymbol?
+ private let currentSymbolVariant: VLSFSymbolVariants?
+
+ private let columns = [ GridItem(.adaptive(minimum: 64), spacing: 16) ]
+
+ @Namespace private var namespace
+
+ package init(groups: [ VLSFSymbolGroup ],
+              currentSymbol: Binding<VLSFSymbol?>,
+              currentSymbolVariant: VLSFSymbolVariants?)
  {
-  private let groups: [ VLstack.SFSymbolGroup ]
-  @Binding private var currentSymbol: VLstack.SFSymbol?
-  private let currentSymbolVariant: VLstack.SFSymbolVariants?
+  self.groups = groups
+  self._currentSymbol = currentSymbol
+  self.currentSymbolVariant = currentSymbolVariant
+ }
 
-  private let columns = [ GridItem(.adaptive(minimum: 64), spacing: 16) ]
-
-  @Namespace private var namespace
-
-  package init(groups: [ VLstack.SFSymbolGroup ],
-               currentSymbol: Binding<VLstack.SFSymbol?>,
-               currentSymbolVariant: VLstack.SFSymbolVariants?)
+ package var body: some View
+ {
+  ScrollView
   {
-   self.groups = groups
-   self._currentSymbol = currentSymbol
-   self.currentSymbolVariant = currentSymbolVariant
-  }
-
-  package var body: some View
-  {
-   ScrollView
+   LazyVStack(pinnedViews: [ .sectionHeaders ])
    {
-    LazyVStack(pinnedViews: [ .sectionHeaders ])
+    ForEach(groups, id: \.id)
     {
-     ForEach(groups, id: \.id)
+     group in
+     Section
      {
-      group in
-      Section
+      LazyVGrid(columns: columns,
+                alignment: .center,
+                spacing: 16)
       {
-       LazyVGrid(columns: columns,
-                 alignment: .center,
-                 spacing: 16)
+       ForEach(group.items, id: \.id)
        {
-        ForEach(group.items, id: \.id)
-        {
-         item in
-         VLstack.SFSymbolPickerItem(selected: $currentSymbol,
-                                    target: item.sfSymbol,
-                                    symbolVariant: currentSymbolVariant,
-                                    groupKey: group.key,
-                                    namespace: namespace)
-        }
+        item in
+        VLSFSymbolPickerItem(selected: $currentSymbol,
+                             target: item.sfSymbol,
+                             symbolVariant: currentSymbolVariant,
+                             groupKey: group.key,
+                             namespace: namespace)
        }
-       .padding(.bottom, 16)
       }
-      header:
-      {
-       Text(group.name)
-        .font(.headline)
-        .textCase(nil)
-        .padding(.bottom, 4)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(uiColor: .systemBackground))
-      }
+      .padding(.bottom, 16)
+     }
+     header:
+     {
+      Text(group.name)
+       .font(.headline)
+       .textCase(nil)
+       .padding(.bottom, 4)
+       .frame(maxWidth: .infinity, alignment: .leading)
+       .background(Color(uiColor: .systemBackground))
      }
     }
    }

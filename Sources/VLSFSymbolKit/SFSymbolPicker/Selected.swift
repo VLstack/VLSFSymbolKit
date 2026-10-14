@@ -1,68 +1,61 @@
-import VLstackNamespace
 import VLBundleKit
 import SwiftUI
 
-extension VLstack
+package struct VLSFSymbolPickerSheetSelected: View
 {
- package struct SFSymbolPickerSheetSelected: View
+ private let currentSymbol: VLSFSymbol?
+ private let currentSymbolVariant: VLSFSymbolVariants?
+
+ package init(currentSymbol: VLSFSymbol?,
+              currentSymbolVariant: VLSFSymbolVariants?)
  {
-  private let currentSymbol: VLstack.SFSymbol?
-  private let currentSymbolVariant: VLstack.SFSymbolVariants?
+  self.currentSymbol = currentSymbol
+  self.currentSymbolVariant = currentSymbolVariant
+ }
 
-  package init(currentSymbol: VLstack.SFSymbol?,
-               currentSymbolVariant: VLstack.SFSymbolVariants?)
+ package var body: some View
+ {
+  HStack(alignment: .firstTextBaseline)
   {
-   self.currentSymbol = currentSymbol
-   self.currentSymbolVariant = currentSymbolVariant
-  }
+   Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SelectedSymbol",
+                                              fallbackModule: .module))
+    .textCase(nil)
+    .underline()
 
-  package var body: some View
-  {
-   HStack(alignment: .firstTextBaseline)
-   {
-    Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SelectedSymbol",
-                                               fallbackModule: .module))
-     .textCase(nil)
-     .underline()
-
-    VLstack.SFSymbolPickerSheetSelectedDetail(currentSymbol: currentSymbol,
-                                              currentSymbolVariant: currentSymbolVariant)
-   }
-   .font(.headline)
-   .frame(maxWidth: .infinity, alignment: .leading)
-   .padding(.vertical, 5)
+   VLSFSymbolPickerSheetSelectedDetail(currentSymbol: currentSymbol,
+                                       currentSymbolVariant: currentSymbolVariant)
   }
+  .font(.headline)
+  .frame(maxWidth: .infinity, alignment: .leading)
+  .padding(.vertical, 5)
  }
 }
 
-extension VLstack
+fileprivate struct VLSFSymbolPickerSheetSelectedDetail: View
 {
- fileprivate struct SFSymbolPickerSheetSelectedDetail: View
+ private let currentSymbol: VLSFSymbol?
+ private let currentSymbolVariant: VLSFSymbolVariants?
+
+ fileprivate init(currentSymbol: VLSFSymbol?,
+                  currentSymbolVariant: VLSFSymbolVariants?)
  {
-  private let currentSymbol: VLstack.SFSymbol?
-  private let currentSymbolVariant: VLstack.SFSymbolVariants?
+  self.currentSymbol = currentSymbol
+  self.currentSymbolVariant = currentSymbolVariant
+ }
 
-  fileprivate init(currentSymbol: VLstack.SFSymbol?,
-                   currentSymbolVariant: VLstack.SFSymbolVariants?)
+ fileprivate var body: some View
+ {
+  if let currentSymbol
   {
-   self.currentSymbol = currentSymbol
-   self.currentSymbolVariant = currentSymbolVariant
-  }
-
-  fileprivate var body: some View
-  {
-   if let currentSymbol
-   {
-    Image(currentSymbol)
-     .sfSymbolVariant(currentSymbolVariant)
-     .fontWeight(.regular)
-   }
-   else
-   {
-    Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.NoSelectedSymbol",
-                                               fallbackModule: .module))
+   Image(currentSymbol)
+    .sfSymbolVariant(currentSymbolVariant)
     .fontWeight(.regular)
-   }
+  }
+  else
+  {
+   Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.NoSelectedSymbol",
+                                              fallbackModule: .module))
+   .fontWeight(.regular)
   }
  }
 }

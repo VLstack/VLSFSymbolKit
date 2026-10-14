@@ -1,7 +1,7 @@
 # To add a custom case
 
-extension VLstack.SFSymbol
+extension VLSFSymbol
 {
- static var premium: VLstack.SFSymbol { .crownFill }
- static var recipeFavorite: VLstack.SFSymbol { .heart }
+ static var premium: VLSFSymbol { .crownFill }
+ static var recipeFavorite: VLSFSymbol { .heart }
 }
