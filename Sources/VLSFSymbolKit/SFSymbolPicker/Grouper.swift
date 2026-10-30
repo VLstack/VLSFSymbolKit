@@ -2,16 +2,82 @@ import UIKit
 
 package final actor VLSFSymbolGrouper
 {
- private var groups: [ VLSFSymbolGroup ] = []
+ private struct IndexedItem: Sendable
+ {
+  let item: VLSFSymbolItem
+  let terms: [ String ]
+ }
+
+ private struct IndexedGroup: Sendable
+ {
+  let group: VLSFSymbolGroup
+  let items: [ IndexedItem ]
+ }
+
+ private var indexedGroups: [ IndexedGroup ] = []
  private var symbolsExistenceCache: [ String : Bool ] = [:]
 
  package func load() async
  {
-  self.groups = VLSFSymbolGroup.buildGroups().sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+  let groups = VLSFSymbolGroup.buildGroups().sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+
+  // NOTE: search terms are folded once here, not on every keystroke
+  self.indexedGroups = groups.map
+  {
+   group in
+   IndexedGroup(group: group,
+                items: group.items.map { IndexedItem(item: $0, terms: Self.searchTerms(groupName: group.name, item: $0)) })
+  }
  }
 
+ package func filter(search: String,
+                     symbolVariant: String) async -> [ VLSFSymbolGroup ]
+ {
+  let words = Self.words(from: search)
+
+  return indexedGroups.compactMap
+  {
+   indexed in
+   // NOTE: text match first (cheap), symbol existence (UIImage) only for the matching items
+   let filteredItems = indexed.items
+                              .filter { Self.matches(words: words, terms: $0.terms) && exist($0.item.sfSymbol.rawValue, symbolVariant) }
+                              .map(\.item)
+
+   guard !filteredItems.isEmpty else { return nil }
+
+   return VLSFSymbolGroup(key: indexed.group.key,
+                          name: indexed.group.name,
+                          items: filteredItems)
+  }
+ }
+
+ // MARK: - Search (pure functions, tested)
+ package static func fold(_ text: String) -> String
+ {
+  text.folding(options: [ .diacriticInsensitive, .caseInsensitive ], locale: .current)
+ }
+
+ package static func words(from search: String) -> [ String ]
+ {
+  fold(search).split(whereSeparator: { $0.isWhitespace }).map { String($0) }
+ }
+
+ package static func searchTerms(groupName: String,
+                                 item: VLSFSymbolItem) -> [ String ]
+ {
+  [ fold(groupName), fold(item.sfSymbol.rawValue) ] + item.keywords.map { fold($0) }
+ }
+
+ // NOTE: every word must be found in at least one term; no word matches everything
+ package static func matches(words: [ String ],
+                             terms: [ String ]) -> Bool
+ {
+  words.allSatisfy { word in terms.contains { $0.contains(word) } }
+ }
+
+ // MARK: - Symbol existence
  private func exist(_ systemName: String,
-                        _ symbolVariant: String) -> Bool
+                    _ symbolVariant: String) -> Bool
  {
   let cacheKey = systemName + symbolVariant
   if let cache = symbolsExistenceCache[cacheKey]
@@ -22,7 +88,7 @@ package final actor VLSFSymbolGrouper
   if symbolVariant.isEmpty
   {
    let results = UIImage(systemName: systemName) != nil
-   symbolsExistenceCache[systemName] = results
+   symbolsExistenceCache[cacheKey] = results
 
    return results
   }
@@ -45,68 +111,5 @@ package final actor VLSFSymbolGrouper
   symbolsExistenceCache[cacheKey] = results
 
   return results
- }
-
- /*
-TODO: check this version
-  private func exist(_ systemName: String,
-                     _ symbolVariant: String) async -> Bool
-  {
-   let cacheKey = systemName + symbolVariant
-   if let cache = symbolsExistenceCache[cacheKey] {
-    return cache
-   }
-
-   let knownVariants: Set<String> = [ "circle", "square", "rectangle", "fill", "slash" ]
-   var symbolComponents = systemName.split(separator: ".").map { String($0) }
-   var variantComponents = symbolVariant.split(separator: ".").map { String($0) }
-   if let firstSymbolToken = symbolComponents.first,
-      knownVariants.contains(firstSymbolToken)
-   {
-    variantComponents.removeAll(where: { $0.contains(firstSymbolToken) })
-   }
-
-   symbolComponents.removeAll(where: { variantComponents.contains($0) })
-   let finalSymbol = symbolComponents.joined(separator: ".")
-   let finalVariant = variantComponents.joined(separator: ".")
-   var fullSymbol: String = finalSymbol
-   if !finalVariant.isEmpty { fullSymbol += "." + finalVariant }
-
-   // ⬇️ Traitement directement en arrière-plan avec préparation du rendu
-   let result = UIImage(systemName: fullSymbol)?.byPreparingForDisplay() != nil
-
-   symbolsExistenceCache[cacheKey] = result
-   return result
-  }
-
-  */
- package func filter(search: String,
-                     symbolVariant: String) async -> [ VLSFSymbolGroup ]
- {
-  let foldedSearch = search.folding(options: [ .diacriticInsensitive, .caseInsensitive ], locale: .current).trimmingCharacters(in: .whitespacesAndNewlines)
-
-  return self.groups.compactMap
-  {
-   group in
-   let groupNameMatches = group.name.folding(options: [ .diacriticInsensitive, .caseInsensitive ], locale: .current)
-                                    .contains(foldedSearch)
-
-   let filteredItems = group.items.filter
-   {
-    item in
-    guard exist(item.sfSymbol.rawValue, symbolVariant) else { return false }
-
-    if foldedSearch.isEmpty { return true }
-    if groupNameMatches { return true }
-    if item.sfSymbol.rawValue.contains(foldedSearch) { return true }
-    if item.keywords.contains(where: { $0.contains(foldedSearch) }) { return true }
-
-    return false
-   }
-
-   guard !filteredItems.isEmpty else { return nil }
-
-   return VLSFSymbolGroup(key: group.key, name: group.name, items: filteredItems)
-  }
  }
 }

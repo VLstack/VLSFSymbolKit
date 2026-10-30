@@ -2,7 +2,8 @@ import Foundation
 
 public struct VLSFSymbolGroup: Identifiable, Sendable
 {
- public let id: String
+ public var id: String { key }
+
  public let key: String
  public let name: String
  public let items: [ VLSFSymbolItem ]
@@ -10,7 +11,6 @@ public struct VLSFSymbolGroup: Identifiable, Sendable
  public init(key: String,
              items: [ VLSFSymbolItem ])
  {
-  self.id = UUID().uuidString
   self.key = key
   self.name = Bundle.main.localizedString("I18N-VLSFSymbolKit.group.\(key)",
                                           fallbackModule: .module)
@@ -27,7 +27,6 @@ public struct VLSFSymbolGroup: Identifiable, Sendable
              name: String,
              items: [ VLSFSymbolItem ])
  {
-  self.id = UUID().uuidString
   self.key = key
   self.name = name
   self.items = items

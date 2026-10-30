@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum VLSFSymbolVariantShape: Int, Codable
+public enum VLSFSymbolVariantShape: Int, Codable, Sendable
 {
  case slash
  case circle
@@ -21,7 +21,7 @@ public enum VLSFSymbolVariantShape: Int, Codable
  }
 }
 
-public struct VLSFSymbolVariants: Hashable, Codable
+public struct VLSFSymbolVariants: Hashable, Codable, Sendable
 {
  public static var none: Self { .init(SymbolVariants.none) }
  public static var circle: Self { .init(SymbolVariants.circle) }

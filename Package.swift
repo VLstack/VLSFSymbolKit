@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.4
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -19,5 +19,7 @@ let package = Package(name: "VLSFSymbolKit",
                       [
                        .target(name: "VLSFSymbolKit",
                                dependencies: [ "VLBundleKit" ],
-                               resources: [ .process("Resources") ])
+                               resources: [ .process("Resources") ]),
+                       .testTarget(name: "VLSFSymbolKitTests",
+                                   dependencies: [ "VLSFSymbolKit" ])
                       ])

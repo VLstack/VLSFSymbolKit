@@ -74,6 +74,13 @@ package struct VLSFSymbolPickerSheet: View
    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
    .task(id: FetchTrigger(search: search, symbolVariant: currentSymbolVariant?.stringEncoded))
    {
+    // NOTE: wait for the user to stop typing; clearing the search is immediate
+    if !search.isEmpty
+    {
+     try? await Task.sleep(for: .milliseconds(250))
+     guard !Task.isCancelled else { return }
+    }
+
     let result = await grouper.filter(search: search,
                                       symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
     guard !Task.isCancelled else { return }
