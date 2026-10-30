@@ -12,8 +12,10 @@ public struct VLSFSymbolGroup: Identifiable, Sendable
              items: [ VLSFSymbolItem ])
  {
   self.key = key
-  self.name = Bundle.main.localizedString("I18N-VLSFSymbolKit.group.\(key)",
-                                          fallbackModule: .module)
+  // NOTE: dynamic key, so Bundle.localizedString instead of String(localized:), which would look up a "%@" key
+  self.name = Bundle.module.localizedString(forKey: "I18N-VLSFSymbolKit.group.\(key)",
+                                            value: nil,
+                                            table: nil)
   self.items = items
   #if DEBUG
   if self.name == "I18N-VLSFSymbolKit.group.\(key)"

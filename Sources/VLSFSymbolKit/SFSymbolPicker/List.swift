@@ -6,9 +6,7 @@ package struct VLSFSymbolPickerSheetList: View
  @Binding private var currentSymbol: VLSFSymbol?
  private let currentSymbolVariant: VLSFSymbolVariants?
 
- private let columns = [ GridItem(.adaptive(minimum: 64), spacing: 16) ]
-
- @Namespace private var namespace
+ @ScaledMetric private var cellMinimum: Double = 64
 
  package init(groups: [ VLSFSymbolGroup ],
               currentSymbol: Binding<VLSFSymbol?>,
@@ -25,23 +23,21 @@ package struct VLSFSymbolPickerSheetList: View
   {
    LazyVStack(pinnedViews: [ .sectionHeaders ])
    {
-    ForEach(groups, id: \.id)
+    ForEach(groups)
     {
      group in
      Section
      {
-      LazyVGrid(columns: columns,
+      LazyVGrid(columns: [ GridItem(.adaptive(minimum: cellMinimum), spacing: 16) ],
                 alignment: .center,
                 spacing: 16)
       {
-       ForEach(group.items, id: \.id)
+       ForEach(group.items)
        {
         item in
         VLSFSymbolPickerItem(selected: $currentSymbol,
                              target: item.sfSymbol,
-                             symbolVariant: currentSymbolVariant,
-                             groupKey: group.key,
-                             namespace: namespace)
+                             symbolVariant: currentSymbolVariant)
        }
       }
       .padding(.bottom, 16)

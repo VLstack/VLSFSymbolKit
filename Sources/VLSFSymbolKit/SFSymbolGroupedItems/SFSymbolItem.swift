@@ -12,15 +12,16 @@ public struct VLSFSymbolItem: Identifiable, Sendable
  {
   self.sfSymbol = sfSymbol
   self.keys = keys
-  self.keywords = keys.map { Bundle.main.localizedString("I18N-VLSFSymbolKit.keyword.\($0)",
-                                                         fallbackModule: .module) }
+  // NOTE: dynamic keys, so Bundle.localizedString instead of String(localized:), which would look up a "%@" key
+  self.keywords = keys.map { Bundle.module.localizedString(forKey: "I18N-VLSFSymbolKit.keyword.\($0)",
+                                                           value: nil,
+                                                           table: nil) }
   #if DEBUG
-  keys.forEach
+  zip(keys, keywords).forEach
   {
-   key in
+   key, keyword in
    let item = "I18N-VLSFSymbolKit.keyword.\(key)"
-   let i18n = Bundle.main.localizedString(item, fallbackModule: .module)
-   if i18n == item
+   if keyword == item
    {
     print("I18N missing keyword \(key) => \(item)")
    }

@@ -2,78 +2,44 @@ import SwiftUI
 
 package struct VLSFSymbolPickerItem: View
 {
+ @ScaledMetric private var iconSize: Double = 28
+
  @Binding private var selected: VLSFSymbol?
  private let target: VLSFSymbol
  private let symbolVariant: VLSFSymbolVariants?
- private let groupKey: String
- private let namespace: Namespace.ID
 
  package init(selected: Binding<VLSFSymbol?>,
               target: VLSFSymbol,
-              symbolVariant: VLSFSymbolVariants?,
-              groupKey: String,
-              namespace: Namespace.ID)
+              symbolVariant: VLSFSymbolVariants?)
  {
   self._selected = selected
   self.target = target
   self.symbolVariant = symbolVariant
-  self.groupKey = groupKey
-  self.namespace = namespace
  }
 
  package var body: some View
  {
-  ZStack
-  {
-   Rectangle()
-    .fill(Color.clear)
-    .aspectRatio(1, contentMode: .fit)
-    .clipShape(.rect(cornerRadius: 5))
+  let isSelected = selected == target
 
-   Image(target)
-    .font(.system(size: 32))
-    .symbolVariant(symbolVariant?.nativeVariant ?? .none)
-    .opacity(selected == target ? 1 : 0.65)
-  }
-  .onTapGesture
+  Button
   {
-   withAnimation
+   withAnimation(.snappy) { selected = target }
+  }
+  label:
+  {
+   VLSFSymbolPickerTile(label: nil,
+                        isSelected: isSelected)
    {
-    selected = target
+    // NOTE: the variant only applies to the selected symbol, the others keep their plain form
+    Image(target)
+     .sfSymbolVariant(isSelected ? symbolVariant : nil)
+     .font(.system(size: iconSize))
+     .frame(width: iconSize * 2.1,
+            height: iconSize * 2.1)
    }
   }
-  .background
-  {
-   VLSFSymbolPickerItemHighlight(selected: selected == target,
-                                 groupKey: groupKey,
-                                 namespace: namespace)
-  }
- }
-}
-
-fileprivate struct VLSFSymbolPickerItemHighlight: View
-{
- let selected: Bool
- let groupKey: String
- let namespace: Namespace.ID
-
- package init(selected: Bool,
-              groupKey: String,
-              namespace: Namespace.ID)
- {
-  self.selected = selected
-  self.groupKey = groupKey
-  self.namespace = namespace
- }
-
- package var body: some View
- {
-  if selected
-  {
-   Rectangle()
-    .fill(Color.gray.opacity(0.125))
-    .clipShape(.rect(cornerRadius: 5))
-    .matchedGeometryEffect(id: "highlight\(groupKey)", in: namespace)
-  }
+  .buttonStyle(.plain)
+  .accessibilityLabel(target.rawValue.replacingOccurrences(of: ".", with: " "))
+  .accessibilityAddTraits(isSelected ? .isSelected : [])
  }
 }

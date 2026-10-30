@@ -1,4 +1,3 @@
-import VLBundleKit
 import SwiftUI
 
 package struct VLSFSymbolPickerSheet: View
@@ -8,8 +7,8 @@ package struct VLSFSymbolPickerSheet: View
  @Binding private var symbolVariant: VLSFSymbolVariants?
  private let allowedVariants: [ VLSFSymbolVariantShape ]?
  private let canChangeVariants: Bool
- private let title: String?
- private let accentColor: Color
+ private let confirmation: VLSFSymbolPickerConfirmation
+ private let accentColor: Color?
 
  @State private var grouper = VLSFSymbolGrouper()
 
@@ -25,16 +24,16 @@ package struct VLSFSymbolPickerSheet: View
               symbolVariant: Binding<VLSFSymbolVariants?>,
               allowedVariants: [ VLSFSymbolVariantShape ]?,
               canChangeVariants: Bool,
-              title: String? = nil,
-              accentColor: Color? = nil)
+              confirmation: VLSFSymbolPickerConfirmation,
+              accentColor: Color?)
  {
   self._isPresented = isPresented
   self._selected = selected
   self._symbolVariant = symbolVariant
   self.allowedVariants = allowedVariants
   self.canChangeVariants = canChangeVariants
-  self.title = title
-  self.accentColor = accentColor ?? .blue
+  self.confirmation = confirmation
+  self.accentColor = accentColor
   self._currentSymbol = State(wrappedValue: selected.wrappedValue)
   self._currentSymbolVariant = State(wrappedValue: symbolVariant.wrappedValue)
  }
@@ -43,21 +42,20 @@ package struct VLSFSymbolPickerSheet: View
  {
   if isLoaded
   {
-   VStack(spacing: 8)
+   VStack(spacing: 12)
    {
-    VLSFSymbolPickerSheetTitle(title: title,
-                               accentColor: accentColor,
-                               currentSymbol: currentSymbol,
-                               onConfirm: onConfirm)
+    VLSFSymbolPickerSheetHeader(search: $search,
+                                currentSymbol: currentSymbol,
+                                currentSymbolVariant: currentSymbolVariant,
+                                showsConfirm: confirmation == .button,
+                                onConfirm: onConfirm)
 
-    VLSFSymbolPickerSheetSearch(search: $search)
-
-    VLSFSymbolPickerSheetVariantsPicker(isPresented: canChangeVariants,
-                                        variant: $currentSymbolVariant,
-                                        allowedVariants: allowedVariants)
-
-    VLSFSymbolPickerSheetSelected(currentSymbol: currentSymbol,
-                                  currentSymbolVariant: currentSymbolVariant)
+    if canChangeVariants
+    {
+     VLSFSymbolPickerSheetVariantTiles(variant: $currentSymbolVariant,
+                                       symbol: currentSymbol,
+                                       allowedVariants: allowedVariants)
+    }
 
     VLSFSymbolPickerSheetList(groups: groups,
                               currentSymbol: $currentSymbol,
@@ -72,7 +70,7 @@ package struct VLSFSymbolPickerSheet: View
    }
    .foregroundStyle(Color(uiColor: .label))
    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-   .task(id: FetchTrigger(search: search, symbolVariant: currentSymbolVariant?.stringEncoded))
+   .task(id: search)
    {
     // NOTE: wait for the user to stop typing; clearing the search is immediate
     if !search.isEmpty
@@ -81,13 +79,29 @@ package struct VLSFSymbolPickerSheet: View
      guard !Task.isCancelled else { return }
     }
 
-    let result = await grouper.filter(search: search,
-                                      symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
+    let result = await grouper.filter(search: search)
     guard !Task.isCancelled else { return }
-    groups = result
+    withAnimation(.snappy) { groups = result }
+   }
+   .onChange(of: currentSymbol)
+   {
+    // NOTE: the new symbol keeps what it can of the variant (circle.fill may become fill)
+    if canChangeVariants,
+       let currentSymbol,
+       let variant = currentSymbolVariant
+    {
+     currentSymbolVariant = VLSFSymbolGrouper.compatible(variant, for: currentSymbol.rawValue)
+    }
+
+    if confirmation == .automatic { selected = currentSymbol }
+   }
+   .onChange(of: currentSymbolVariant)
+   {
+    if confirmation == .automatic { symbolVariant = currentSymbolVariant }
    }
    .padding(.horizontal)
    .background(Color(uiColor: .systemBackground))
+   .tint(accentColor)
   }
   else
   {
@@ -95,20 +109,12 @@ package struct VLSFSymbolPickerSheet: View
    .task
    {
     await grouper.load()
-    let result = await grouper.filter(search: search,
-                                      symbolVariant: currentSymbolVariant?.stringEncoded ?? "")
+    let result = await grouper.filter(search: search)
     guard !Task.isCancelled else { return }
     groups = result
     isLoaded = true
    }
   }
- }
-
- // MARK: - Structs
- private struct FetchTrigger: Equatable
- {
-  let search: String
-  let symbolVariant: String?
  }
 
  // MARK: - Functions

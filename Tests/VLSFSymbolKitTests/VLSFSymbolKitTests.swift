@@ -179,7 +179,7 @@ struct GrouperTests
  {
   let grouper = VLSFSymbolGrouper()
   await grouper.load()
-  let groups = await grouper.filter(search: "", symbolVariant: "")
+  let groups = await grouper.filter(search: "")
   #expect(!groups.isEmpty)
   #expect(groups.allSatisfy { !$0.items.isEmpty })
  }
@@ -188,7 +188,7 @@ struct GrouperTests
  {
   let grouper = VLSFSymbolGrouper()
   await grouper.load()
-  let groups = await grouper.filter(search: "PawPrint", symbolVariant: "")
+  let groups = await grouper.filter(search: "PawPrint")
   #expect(groups.contains { group in group.items.contains { $0.sfSymbol == .pawprint } })
  }
 
@@ -196,26 +196,74 @@ struct GrouperTests
  {
   let grouper = VLSFSymbolGrouper()
   await grouper.load()
-  #expect(await grouper.filter(search: "zzqqxxww", symbolVariant: "").isEmpty)
+  #expect(await grouper.filter(search: "zzqqxxww").isEmpty)
  }
 
  @Test func groupIdsAreStableAndUnique() async
  {
   let grouper = VLSFSymbolGrouper()
   await grouper.load()
-  let first = await grouper.filter(search: "", symbolVariant: "").map(\.id)
-  let second = await grouper.filter(search: "", symbolVariant: "").map(\.id)
+  let first = await grouper.filter(search: "").map(\.id)
+  let second = await grouper.filter(search: "").map(\.id)
   #expect(first == second)
   #expect(Set(first).count == first.count)
  }
+}
 
- @Test func variantFilterKeepsOnlyExistingSymbols() async
+// MARK: - Full name
+struct FullNameTests
+{
+ @Test func noVariantKeepsName()
  {
-  let grouper = VLSFSymbolGrouper()
-  await grouper.load()
-  let all = await grouper.filter(search: "", symbolVariant: "").reduce(0) { $0 + $1.items.count }
-  let circleFill = await grouper.filter(search: "", symbolVariant: "circle.fill").reduce(0) { $0 + $1.items.count }
-  #expect(circleFill > 0)
-  #expect(circleFill <= all)
+  #expect(VLSFSymbolGrouper.fullName("xmark", "") == "xmark")
+ }
+
+ @Test func variantIsAppended()
+ {
+  #expect(VLSFSymbolGrouper.fullName("pawprint", "circle.fill") == "pawprint.circle.fill")
+  #expect(VLSFSymbolGrouper.fullName("mic", "slash.circle") == "mic.slash.circle")
+ }
+
+ @Test func tokenAlreadyInNameIsNotRepeated()
+ {
+  #expect(VLSFSymbolGrouper.fullName("circle", "circle.fill") == "circle.fill")
+  #expect(VLSFSymbolGrouper.fullName("heart.fill", "fill") == "heart.fill")
+ }
+}
+
+// MARK: - Compatible variant
+struct CompatibleTests
+{
+ // NOTE: fake symbol catalog, independent of the iOS version
+ private let catalog: Set<String> = [ "pawprint", "pawprint.fill", "pawprint.circle", "pawprint.circle.fill", "mic", "mic.slash" ]
+
+ private func variant(_ encoded: String) -> VLSFSymbolVariants
+ {
+  VLSFSymbolVariants(stringEncoded: encoded)
+ }
+
+ @Test func existingVariantIsKept()
+ {
+  #expect(VLSFSymbolGrouper.compatible(variant("circle.fill"), for: "pawprint", exists: { catalog.contains($0) }) == variant("circle.fill"))
+ }
+
+ @Test func missingShapeIsDroppedFirst()
+ {
+  #expect(VLSFSymbolGrouper.compatible(variant("square.fill"), for: "pawprint", exists: { catalog.contains($0) }) == variant("fill"))
+ }
+
+ @Test func missingFillIsDroppedThen()
+ {
+  #expect(VLSFSymbolGrouper.compatible(variant("circle.fill.slash"), for: "mic", exists: { catalog.contains($0) }) == variant("slash"))
+ }
+
+ @Test func nothingLeftGivesNone()
+ {
+  #expect(VLSFSymbolGrouper.compatible(variant("circle.fill"), for: "mic", exists: { catalog.contains($0) }) == .none)
+ }
+
+ @Test func realSymbolKeepsItsVariant()
+ {
+  #expect(VLSFSymbolGrouper.compatible(variant("circle.fill"), for: "pawprint") == variant("circle.fill"))
  }
 }

@@ -11,14 +11,9 @@ let package = Package(name: "VLSFSymbolKit",
                        .library(name: "VLSFSymbolKit",
                                 targets: [ "VLSFSymbolKit" ])
                       ],
-                      dependencies:
-                      [
-                       .package(url: "https://github.com/VLstack/VLBundleKit", from: "1.5.1")
-                      ],
                       targets:
                       [
                        .target(name: "VLSFSymbolKit",
-                               dependencies: [ "VLBundleKit" ],
                                resources: [ .process("Resources") ]),
                        .testTarget(name: "VLSFSymbolKitTests",
                                    dependencies: [ "VLSFSymbolKit" ])

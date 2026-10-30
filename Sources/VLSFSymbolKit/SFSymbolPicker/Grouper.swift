@@ -30,8 +30,8 @@ package final actor VLSFSymbolGrouper
   }
  }
 
- package func filter(search: String,
-                     symbolVariant: String) async -> [ VLSFSymbolGroup ]
+ // NOTE: the variant is not a filter: every symbol is listed, the variant only applies to the selected one
+ package func filter(search: String) async -> [ VLSFSymbolGroup ]
  {
   let words = Self.words(from: search)
 
@@ -40,7 +40,7 @@ package final actor VLSFSymbolGrouper
    indexed in
    // NOTE: text match first (cheap), symbol existence (UIImage) only for the matching items
    let filteredItems = indexed.items
-                              .filter { Self.matches(words: words, terms: $0.terms) && exist($0.item.sfSymbol.rawValue, symbolVariant) }
+                              .filter { Self.matches(words: words, terms: $0.terms) && exist($0.item.sfSymbol.rawValue) }
                               .map(\.item)
 
    guard !filteredItems.isEmpty else { return nil }
@@ -76,22 +76,46 @@ package final actor VLSFSymbolGrouper
  }
 
  // MARK: - Symbol existence
- private func exist(_ systemName: String,
-                    _ symbolVariant: String) -> Bool
+ private func exist(_ systemName: String) -> Bool
  {
-  let cacheKey = systemName + symbolVariant
-  if let cache = symbolsExistenceCache[cacheKey]
+  if let cache = symbolsExistenceCache[systemName]
   {
    return cache
   }
 
-  if symbolVariant.isEmpty
-  {
-   let results = UIImage(systemName: systemName) != nil
-   symbolsExistenceCache[cacheKey] = results
+  let results = Self.exists(systemName)
+  symbolsExistenceCache[systemName] = results
 
-   return results
+  return results
+ }
+
+ package static func exists(_ systemName: String) -> Bool
+ {
+  UIImage(systemName: systemName) != nil
+ }
+
+ // NOTE: variant kept when another symbol is chosen: what the symbol does not have is dropped, the shape first, then fill, then slash
+ package static func compatible(_ variant: VLSFSymbolVariants,
+                                for systemName: String,
+                                exists: (String) -> Bool = { VLSFSymbolGrouper.exists($0) }) -> VLSFSymbolVariants
+ {
+  let steps: [ [ VLSFSymbolVariantShape ] ] = [ [], [ .circle, .square, .rectangle ], [ .fill ], [ .slash ] ]
+  var results = variant
+
+  for step in steps
+  {
+   step.forEach { results.remove($0) }
+   if exists(fullName(systemName, results.stringEncoded)) { return results }
   }
+
+  return results
+ }
+
+ // NOTE: name of a symbol drawn with a variant; a token already in the name is not repeated (circle + circle.fill → circle.fill)
+ package static func fullName(_ systemName: String,
+                              _ symbolVariant: String) -> String
+ {
+  guard !symbolVariant.isEmpty else { return systemName }
 
   let knownVariants: Set<String> = [ "circle", "square", "rectangle", "fill", "slash" ]
   var symbolComponents = systemName.split(separator: ".").map { String($0) }
@@ -107,9 +131,7 @@ package final actor VLSFSymbolGrouper
   let finalVariant = variantComponents.joined(separator: ".")
   var fullSymbol: String = finalSymbol
   if !finalVariant.isEmpty { fullSymbol += "." + finalVariant }
-  let results = UIImage(systemName: fullSymbol) != nil
-  symbolsExistenceCache[cacheKey] = results
 
-  return results
+  return fullSymbol
  }
 }

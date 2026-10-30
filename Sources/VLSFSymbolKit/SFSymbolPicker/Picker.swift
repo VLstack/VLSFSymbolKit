@@ -6,52 +6,38 @@ public struct VLSFSymbolPicker<NoSelection: View>: View
  @Binding private var symbolVariant: VLSFSymbolVariants?
  private let allowedVariants: [ VLSFSymbolVariantShape ]?
  private let canChangeVariants: Bool
+ private let confirmation: VLSFSymbolPickerConfirmation
  private let detents: Set<PresentationDetent>
  private let noSelection: () -> NoSelection
- private let title: String?
  private let accentColor: Color?
 
  @State private var isPresented: Bool = false
  @State private var initialDetent: PresentationDetent
 
+ /// Symbol only, in its plain form, without variant tiles
  public init(selected: Binding<VLSFSymbol?>,
-             symbolVariant: VLSFSymbolVariants = VLSFSymbolVariants(SymbolVariants.none),
+             confirmation: VLSFSymbolPickerConfirmation = .button,
              detents: Set<PresentationDetent> = [ .medium, .large ],
-             title: String? = nil,
              accentColor: Color? = nil,
              @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
  {
   self._selected = selected
-  self._symbolVariant = .constant(symbolVariant)
+  self._symbolVariant = .constant(nil)
   self.allowedVariants = nil
   self.canChangeVariants = false
+  self.confirmation = confirmation
   self.detents = detents
   self.noSelection = noSelection
-  self.title = title
   self.accentColor = accentColor
   self._initialDetent = State(wrappedValue: detents.first ?? .medium)
  }
 
- public init(selected: Binding<VLSFSymbol?>,
-             symbolVariant: SymbolVariants,
-             detents: Set<PresentationDetent> = [ .medium, .large ],
-             title: String? = nil,
-             accentColor: Color? = nil,
-             @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
- {
-  self.init(selected: selected,
-            symbolVariant: VLSFSymbolVariants(symbolVariant),
-            detents: detents,
-            title: title,
-            accentColor: accentColor,
-            noSelection: noSelection)
- }
-
+ /// Symbol and variant, chosen in the sheet among the allowed variants
  public init(selected: Binding<VLSFSymbol?>,
              symbolVariant: Binding<VLSFSymbolVariants?>,
              allowedVariants: [ VLSFSymbolVariantShape ]? = nil,
+             confirmation: VLSFSymbolPickerConfirmation = .button,
              detents: Set<PresentationDetent> = [ .medium ],
-             title: String? = nil,
              accentColor: Color? = nil,
              @ViewBuilder noSelection: @escaping () -> NoSelection = { Image(.circle).symbolVariant(.slash) })
  {
@@ -59,19 +45,27 @@ public struct VLSFSymbolPicker<NoSelection: View>: View
   self._symbolVariant = symbolVariant
   self.allowedVariants = allowedVariants
   self.canChangeVariants = true
+  self.confirmation = confirmation
   self.detents = detents
   self.noSelection = noSelection
-  self.title = title
   self.accentColor = accentColor
   self._initialDetent = State(wrappedValue: detents.first ?? .medium)
  }
 
  public var body: some View
  {
-  VLSFSymbolPickerActive(selected: selected,
-                         symbolVariant: symbolVariant ?? VLSFSymbolVariants(SymbolVariants.none),
-                         noSelection: noSelection)
-  .onTapGesture { isPresented.toggle() }
+  Button
+  {
+   isPresented = true
+  }
+  label:
+  {
+   VLSFSymbolPickerActive(selected: selected,
+                          symbolVariant: symbolVariant ?? VLSFSymbolVariants(SymbolVariants.none),
+                          noSelection: noSelection)
+  }
+  .buttonStyle(.plain)
+  .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.ChooseSymbol", bundle: .module))
   .sheet(isPresented: $isPresented)
   {
    VLSFSymbolPickerSheet(isPresented: $isPresented,
@@ -79,7 +73,7 @@ public struct VLSFSymbolPicker<NoSelection: View>: View
                          symbolVariant: $symbolVariant,
                          allowedVariants: allowedVariants,
                          canChangeVariants: canChangeVariants,
-                         title: title,
+                         confirmation: confirmation,
                          accentColor: accentColor)
    .presentationDetents(detents, selection: $initialDetent)
    .presentationDragIndicator(.visible)

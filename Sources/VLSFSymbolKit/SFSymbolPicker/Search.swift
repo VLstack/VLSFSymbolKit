@@ -1,4 +1,3 @@
-import VLBundleKit
 import SwiftUI
 
 package struct VLSFSymbolPickerSheetSearch: View
@@ -12,32 +11,38 @@ package struct VLSFSymbolPickerSheetSearch: View
 
  package var body: some View
  {
-  HStack
+  HStack(spacing: 6)
   {
    Image(.magnifyingglass)
+    .foregroundStyle(.secondary)
 
    TextField(text: $search)
    {
-    Text(verbatim: Bundle.main.localizedString("I18N-VLSFSymbolKit.SearchForASymbol",
-                                               fallbackModule: .module))
+    Text("I18N-VLSFSymbolKit.SearchForASymbol", bundle: .module)
    }
    .textFieldStyle(.plain)
    .autocorrectionDisabled()
    .textInputAutocapitalization(.never)
 
-   Image(.xmark)
-    .symbolVariant(.circle)
-    .opacity(search == "" ? 0 : 1)
-    .onTapGesture { search = "" }
+   if !search.isEmpty
+   {
+    Button
+    {
+     search = ""
+    }
+    label:
+    {
+     Image(.xmark)
+      .symbolVariant(.circle.fill)
+      .foregroundStyle(.secondary)
+    }
+    .buttonStyle(.plain)
+    .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.ClearSearch", bundle: .module))
+   }
   }
   .font(.callout)
-  .padding(5)
-  .background(Color(uiColor: .secondarySystemBackground))
-  .frame(maxWidth: .infinity, alignment: .leading)
-  .clipShape(.rect(cornerRadius: 5))
-  .overlay
-  {
-   RoundedRectangle(cornerRadius: 5).stroke(Color(uiColor: .separator), lineWidth: 0.5)
-  }
+  .padding(.horizontal, 10)
+  .padding(.vertical, 8)
+  .background(.fill.tertiary, in: .rect(cornerRadius: VLSFSymbolPickerTile<EmptyView>.cornerRadius))
  }
 }
