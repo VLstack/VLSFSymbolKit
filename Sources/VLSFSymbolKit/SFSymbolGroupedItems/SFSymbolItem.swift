@@ -12,10 +12,7 @@ public struct VLSFSymbolItem: Identifiable, Sendable
  {
   self.sfSymbol = sfSymbol
   self.keys = keys
-  // NOTE: dynamic keys, so Bundle.localizedString instead of String(localized:), which would look up a "%@" key
-  self.keywords = keys.map { Bundle.module.localizedString(forKey: "I18N-VLSFSymbolKit.keyword.\($0)",
-                                                           value: nil,
-                                                           table: nil) }
+  self.keywords = keys.map { localized("I18N-VLSFSymbolKit.keyword.\($0)") }
   #if DEBUG
   zip(keys, keywords).forEach
   {

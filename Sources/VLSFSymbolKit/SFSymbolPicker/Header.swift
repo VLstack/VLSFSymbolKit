@@ -62,7 +62,7 @@ package struct VLSFSymbolPickerSheetHeader: View
      .padding(8)
      .glassEffect(.regular, in: shape)
      .accessibilityElement(children: .ignore)
-     .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.CurrentSymbol", bundle: .module))
+     .accessibilityLabel(localized("I18N-VLSFSymbolKit.CurrentSymbol"))
      .accessibilityValue(symbolName)
    }
    else
@@ -71,7 +71,7 @@ package struct VLSFSymbolPickerSheetHeader: View
      .padding(8)
      .background(.fill.tertiary, in: shape)
      .accessibilityElement(children: .ignore)
-     .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.CurrentSymbol", bundle: .module))
+     .accessibilityLabel(localized("I18N-VLSFSymbolKit.CurrentSymbol"))
      .accessibilityValue(symbolName)
    }
   }
@@ -85,7 +85,7 @@ package struct VLSFSymbolPickerSheetHeader: View
   }
   .buttonBorderShape(.roundedRectangle(radius: VLSFSymbolPickerTile<EmptyView>.cornerRadius))
   .disabled(currentSymbol == nil)
-  .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.ButtonOK", bundle: .module))
+  .accessibilityLabel(localized("I18N-VLSFSymbolKit.ButtonOK"))
   .accessibilityValue(symbolName)
  }
 
@@ -104,6 +104,6 @@ package struct VLSFSymbolPickerSheetHeader: View
  private var symbolName: String
  {
   currentSymbol.map { $0.rawValue.replacingOccurrences(of: ".", with: " ") }
-  ?? String(localized: "I18N-VLSFSymbolKit.NoSelectedSymbol", bundle: .module)
+  ?? localized("I18N-VLSFSymbolKit.NoSelectedSymbol")
  }
 }

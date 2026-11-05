@@ -65,7 +65,7 @@ public struct VLSFSymbolPicker<NoSelection: View>: View
                           noSelection: noSelection)
   }
   .buttonStyle(.plain)
-  .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.ChooseSymbol", bundle: .module))
+  .accessibilityLabel(localized("I18N-VLSFSymbolKit.ChooseSymbol"))
   .sheet(isPresented: $isPresented)
   {
    VLSFSymbolPickerSheet(isPresented: $isPresented,

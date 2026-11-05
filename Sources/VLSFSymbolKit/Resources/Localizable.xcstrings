@@ -39,6 +39,12 @@
             "state" : "translated",
             "value" : "OK"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
         }
       }
     },
@@ -72,13 +78,19 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scegli un simbolo"
+            "value" : "Scegliere un simbolo"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "シンボルを選択"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기호 선택"
           }
         }
       }
@@ -113,13 +125,19 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cancella la ricerca"
+            "value" : "Cancellare la ricerca"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "検索をクリア"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "검색 지우기"
           }
         }
       }
@@ -162,6 +180,12 @@
             "state" : "translated",
             "value" : "選択中のシンボル"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택한 기호"
+          }
         }
       }
     },
@@ -203,6 +227,12 @@
             "state" : "translated",
             "value" : "なし"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "없음"
+          }
         }
       }
     },
@@ -236,13 +266,19 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cerca un simbolo"
+            "value" : "Cercare un simbolo"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "シンボルを検索"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기호 검색"
           }
         }
       }
@@ -285,6 +321,12 @@
             "state" : "translated",
             "value" : "矢印"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "화살표"
+          }
         }
       }
     },
@@ -326,6 +368,12 @@
             "state" : "translated",
             "value" : "拡張矢印"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확장 화살표"
+          }
         }
       }
     },
@@ -341,19 +389,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chart"
+            "value" : "Charts"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gráfico"
+            "value" : "Gráficos"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Graphique"
+            "value" : "Graphiques"
           }
         },
         "it" : {
@@ -366,6 +414,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "グラフ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "차트"
           }
         }
       }
@@ -408,6 +462,12 @@
             "state" : "translated",
             "value" : "コマース"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상거래"
+          }
         }
       }
     },
@@ -448,6 +508,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "コミュニケーション"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "커뮤니케이션"
           }
         }
       }
@@ -490,6 +556,12 @@
             "state" : "translated",
             "value" : "接続"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "연결"
+          }
         }
       }
     },
@@ -530,6 +602,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "デバイス"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기기"
           }
         }
       }
@@ -572,6 +650,12 @@
             "state" : "translated",
             "value" : "編集"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편집"
+          }
         }
       }
     },
@@ -613,6 +697,12 @@
             "state" : "translated",
             "value" : "ヘルスケア"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "건강"
+          }
         }
       }
     },
@@ -640,7 +730,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Domicile"
+            "value" : "Maison"
           }
         },
         "it" : {
@@ -653,6 +743,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ホーム"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "홈"
           }
         }
       }
@@ -695,6 +791,12 @@
             "state" : "translated",
             "value" : "人"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사람"
+          }
         }
       }
     },
@@ -735,6 +837,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "インターフェイス"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인터페이스"
           }
         }
       }
@@ -777,6 +885,12 @@
             "state" : "translated",
             "value" : "文字"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문자"
+          }
         }
       }
     },
@@ -804,7 +918,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Math"
+            "value" : "Mathématiques"
           }
         },
         "it" : {
@@ -817,6 +931,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "数学"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수학"
           }
         }
       }
@@ -845,7 +965,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Média"
+            "value" : "Médias"
           }
         },
         "it" : {
@@ -858,6 +978,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "メディア"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "미디어"
           }
         }
       }
@@ -900,6 +1026,12 @@
             "state" : "translated",
             "value" : "マルチメディア"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "멀티미디어"
+          }
         }
       }
     },
@@ -940,6 +1072,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自然"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자연"
           }
         }
       }
@@ -982,6 +1120,12 @@
             "state" : "translated",
             "value" : "数字"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "숫자"
+          }
         }
       }
     },
@@ -1022,6 +1166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "オブジェクト"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사물"
           }
         }
       }
@@ -1064,6 +1214,12 @@
             "state" : "translated",
             "value" : "プライバシー"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인정보 보호"
+          }
         }
       }
     },
@@ -1104,6 +1260,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "図形"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "도형"
           }
         }
       }
@@ -1146,6 +1308,12 @@
             "state" : "translated",
             "value" : "スポーツ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스포츠"
+          }
         }
       }
     },
@@ -1187,6 +1355,12 @@
             "state" : "translated",
             "value" : "ステータス"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상태"
+          }
         }
       }
     },
@@ -1226,7 +1400,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "テキストフォーマット"
+            "value" : "テキスト書式"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "텍스트 서식"
           }
         }
       }
@@ -1269,6 +1449,12 @@
             "state" : "translated",
             "value" : "時間"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시간"
+          }
         }
       }
     },
@@ -1284,7 +1470,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Transports"
+            "value" : "Transport"
           }
         },
         "es" : {
@@ -1309,6 +1495,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "交通"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "교통"
           }
         }
       }
@@ -1351,6 +1543,12 @@
             "state" : "translated",
             "value" : "天気"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "날씨"
+          }
         }
       }
     },
@@ -1391,6 +1589,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "アリ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개미"
           }
         }
       }
@@ -1433,6 +1637,12 @@
             "state" : "translated",
             "value" : "記事"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기사"
+          }
         }
       }
     },
@@ -1473,6 +1683,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "バッグ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가방"
           }
         }
       }
@@ -1515,6 +1731,12 @@
             "state" : "translated",
             "value" : "鳥"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새"
+          }
         }
       }
     },
@@ -1555,6 +1777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ボート"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보트"
           }
         }
       }
@@ -1597,6 +1825,12 @@
             "state" : "translated",
             "value" : "本"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "책"
+          }
         }
       }
     },
@@ -1637,6 +1871,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "箱"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "상자"
           }
         }
       }
@@ -1679,6 +1919,12 @@
             "state" : "translated",
             "value" : "車"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동차"
+          }
         }
       }
     },
@@ -1719,6 +1965,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "猫"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "고양이"
           }
         }
       }
@@ -1761,6 +2013,12 @@
             "state" : "translated",
             "value" : "雲"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구름"
+          }
         }
       }
     },
@@ -1801,6 +2059,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "コーヒー"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "커피"
           }
         }
       }
@@ -1843,6 +2107,12 @@
             "state" : "translated",
             "value" : "カップ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "컵"
+          }
         }
       }
     },
@@ -1883,6 +2153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "犬"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개"
           }
         }
       }
@@ -1925,6 +2201,12 @@
             "state" : "translated",
             "value" : "飲み物"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "음료"
+          }
         }
       }
     },
@@ -1965,6 +2247,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "しずく"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물방울"
           }
         }
       }
@@ -2007,6 +2295,12 @@
             "state" : "translated",
             "value" : "火"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "불"
+          }
         }
       }
     },
@@ -2047,6 +2341,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "魚"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물고기"
           }
         }
       }
@@ -2089,6 +2389,12 @@
             "state" : "translated",
             "value" : "フィットネス"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "피트니스"
+          }
         }
       }
     },
@@ -2129,6 +2435,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "炎"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "불꽃"
           }
         }
       }
@@ -2171,6 +2483,12 @@
             "state" : "translated",
             "value" : "花"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "꽃"
+          }
         }
       }
     },
@@ -2211,6 +2529,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "足跡"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발자국"
           }
         }
       }
@@ -2253,6 +2577,12 @@
             "state" : "translated",
             "value" : "ゲーム"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "게임"
+          }
         }
       }
     },
@@ -2293,6 +2623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "手"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "손"
           }
         }
       }
@@ -2335,6 +2671,12 @@
             "state" : "translated",
             "value" : "熱い"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "뜨거운"
+          }
         }
       }
     },
@@ -2375,6 +2717,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "家"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "집"
           }
         }
       }
@@ -2417,6 +2765,12 @@
             "state" : "translated",
             "value" : "人"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사람"
+          }
         }
       }
     },
@@ -2457,6 +2811,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "虫"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "곤충"
           }
         }
       }
@@ -2499,6 +2859,12 @@
             "state" : "translated",
             "value" : "項目"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "항목"
+          }
         }
       }
     },
@@ -2526,7 +2892,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "clef"
+            "value" : "clé"
           }
         },
         "it" : {
@@ -2539,6 +2905,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "鍵"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "열쇠"
           }
         }
       }
@@ -2581,6 +2953,12 @@
             "state" : "translated",
             "value" : "テントウムシ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무당벌레"
+          }
         }
       }
     },
@@ -2621,6 +2999,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "光"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "빛"
           }
         }
       }
@@ -2663,6 +3047,12 @@
             "state" : "translated",
             "value" : "トカゲ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "도마뱀"
+          }
         }
       }
     },
@@ -2690,7 +3080,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "serrure"
+            "value" : "cadenas"
           }
         },
         "it" : {
@@ -2703,6 +3093,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ロック"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자물쇠"
           }
         }
       }
@@ -2745,6 +3141,12 @@
             "state" : "translated",
             "value" : "マイナス"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "빼기"
+          }
         }
       }
     },
@@ -2785,6 +3187,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "月"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "달"
           }
         }
       }
@@ -2827,6 +3235,12 @@
             "state" : "translated",
             "value" : "山"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "산"
+          }
         }
       }
     },
@@ -2867,6 +3281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "植物"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "식물"
           }
         }
       }
@@ -2909,6 +3329,12 @@
             "state" : "translated",
             "value" : "遊ぶ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "놀이"
+          }
         }
       }
     },
@@ -2949,6 +3375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ウサギ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "토끼"
           }
         }
       }
@@ -2991,6 +3423,12 @@
             "state" : "translated",
             "value" : "雨"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비"
+          }
         }
       }
     },
@@ -3031,6 +3469,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "盾"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "방패"
           }
         }
       }
@@ -3073,6 +3517,12 @@
             "state" : "translated",
             "value" : "雪"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "눈"
+          }
         }
       }
     },
@@ -3113,6 +3563,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "スポーツ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스포츠"
           }
         }
       }
@@ -3155,6 +3611,12 @@
             "state" : "translated",
             "value" : "星"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "별"
+          }
         }
       }
     },
@@ -3176,7 +3638,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "pajilla"
+            "value" : "pajita"
           }
         },
         "fr" : {
@@ -3195,6 +3657,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ストロー"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "빨대"
           }
         }
       }
@@ -3237,6 +3705,12 @@
             "state" : "translated",
             "value" : "太陽"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "해"
+          }
         }
       }
     },
@@ -3277,6 +3751,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ターゲット"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "과녁"
           }
         }
       }
@@ -3319,6 +3799,12 @@
             "state" : "translated",
             "value" : "カメ"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "거북이"
+          }
         }
       }
     },
@@ -3359,6 +3845,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "木"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나무"
           }
         }
       }
@@ -3401,6 +3893,12 @@
             "state" : "translated",
             "value" : "乗り物"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "차량"
+          }
         }
       }
     },
@@ -3441,6 +3939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "円"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "원"
           }
         }
       }
@@ -3483,6 +3987,12 @@
             "state" : "translated",
             "value" : "塗りつぶし"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "채우기"
+          }
         }
       }
     },
@@ -3523,6 +4033,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "標準"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기본"
           }
         }
       }
@@ -3565,6 +4081,12 @@
             "state" : "translated",
             "value" : "長方形"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "직사각형"
+          }
         }
       }
     },
@@ -3606,6 +4128,12 @@
             "state" : "translated",
             "value" : "斜線"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사선"
+          }
         }
       }
     },
@@ -3646,6 +4174,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "四角"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "정사각형"
           }
         }
       }

@@ -18,7 +18,7 @@ package struct VLSFSymbolPickerSheetSearch: View
 
    TextField(text: $search)
    {
-    Text("I18N-VLSFSymbolKit.SearchForASymbol", bundle: .module)
+    Text(verbatim: localized("I18N-VLSFSymbolKit.SearchForASymbol"))
    }
    .textFieldStyle(.plain)
    .autocorrectionDisabled()
@@ -37,7 +37,7 @@ package struct VLSFSymbolPickerSheetSearch: View
       .foregroundStyle(.secondary)
     }
     .buttonStyle(.plain)
-    .accessibilityLabel(String(localized: "I18N-VLSFSymbolKit.ClearSearch", bundle: .module))
+    .accessibilityLabel(localized("I18N-VLSFSymbolKit.ClearSearch"))
    }
   }
   .font(.callout)

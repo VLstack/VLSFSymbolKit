@@ -88,10 +88,7 @@ package struct VLSFSymbolPickerSheetVariantTiles: View
                    target: VLSFSymbolVariants,
                    isSelected: Bool) -> some View
  {
-  // NOTE: dynamic key, so Bundle.localizedString instead of String(localized:), which would look up a "%@" key
-  let label = Bundle.module.localizedString(forKey: "I18N-VLSFSymbolKit.variant.\(key)",
-                                            value: nil,
-                                            table: nil)
+  let label = localized("I18N-VLSFSymbolKit.variant.\(key)")
 
   return Button
   {
